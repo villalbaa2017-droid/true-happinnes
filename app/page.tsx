@@ -64,7 +64,7 @@ export default function Home() {
           <img
             src="/logo.jpg"
             alt="logo"
-            className="w-10 h-10 md:w-14 md:h-14 rounded-full object-cover"
+            className="w-14 h-14 md:w-20 md:h-20 rounded-full object-cover"
           />
 
           <h1 className="text-xl md:text-3xl font-bold tracking-widest text-center md:text-left">
