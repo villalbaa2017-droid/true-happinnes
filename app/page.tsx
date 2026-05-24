@@ -61,7 +61,7 @@ export default function Home() {
       <nav className="flex justify-between items-center p-6 border-b border-zinc-800 backdrop-blur-md bg-black/30">
         <div className="flex items-center gap-4">
           <img
-            src="/pagina-de-lu.jpg"
+            src="/logo.jpg"
             alt="logo"
             className="w-14 h-14 rounded-full object-cover"
           />
