@@ -1,234 +1,162 @@
 "use client";
 
-import { useState } from "react";
-
 export default function Home() {
+
   const products = [
     {
-      name: "Nike Dunk Low",
+      name: "Nike Air Force 1",
       price: 180000,
+      brand: "Nike",
       img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
     },
     {
-      name: "Buzos Oversize",
-      price: 95000,
-      img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+      name: "Adidas Superstar",
+      price: 150000,
+      brand: "Adidas",
+      img: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28",
     },
     {
-      name: "Accesorios Streetwear",
-      price: 35000,
-      img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
+      name: "Street Sneakers",
+      price: 120000,
+      brand: "Streetwear",
+      img: "https://images.unsplash.com/photo-1528701800489-20be3c5f2c1a",
     },
   ];
 
-  const [cart, setCart] = useState<any[]>([]);
-  const [search, setSearch] = useState("");
-
-  const addToCart = (product: any) => {
-    setCart([...cart, product]);
-  };
-
-  const removeFromCart = (index: number) => {
-    const newCart = [...cart];
-    newCart.splice(index, 1);
-    setCart(newCart);
-  };
-
-  const filteredProducts = products.filter((p) =>
-    p.name.toLowerCase().includes(search.toLowerCase())
-  );
-
-  const sendCartWhatsApp = () => {
-    const message =
-      "Hola! quiero comprar:%0A" +
-      cart.map((p) => `- ${p.name} ($${p.price})`).join("%0A");
-
-    window.open(
-      `https://wa.me/5491173600891?text=${message}`,
-      "_blank"
-    );
-  };
-
   return (
-    <main
-      className="min-h-screen text-white bg-cover bg-center bg-fixed overflow-x-hidden"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('/publicskate.jpg')",
-      }}
-    >
-      {/* NAVBAR */}
-      <nav className="flex flex-col md:flex-row justify-between items-center gap-4 p-4 md:p-6 border-b border-zinc-800 backdrop-blur-md bg-black/30">
+    <main className="min-h-screen bg-black text-white">
 
-        <div className="flex items-center gap-3">
-          <img
-            src="/logo.jpg"
-            alt="logo"
-            className="w-14 h-14 md:w-20 md:h-20 rounded-full object-cover"
-          />
+      {/* HEADER */}
+      <header className="flex flex-col md:flex-row justify-between items-center p-6 border-b border-zinc-800 bg-zinc-950/70 backdrop-blur-md">
 
-          <h1 className="text-xl md:text-3xl font-bold tracking-widest text-center md:text-left">
-            TRUE HAPPINNES
-          </h1>
-        </div>
+        <h1 className="text-2xl md:text-3xl font-bold tracking-widest">
+          TRUE HAPPINNES
+        </h1>
 
-        <div className="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
+        <div className="flex gap-3 mt-4 md:mt-0">
 
-          <input
-            type="text"
-            placeholder="Buscar..."
-            className="px-3 py-2 rounded bg-zinc-800 text-white outline-none w-full md:w-auto"
-            onChange={(e) => setSearch(e.target.value)}
-          />
+          <a className="px-4 py-2 border border-zinc-700 rounded-xl hover:bg-zinc-800 transition">
+            Nike
+          </a>
 
-          <div className="bg-white text-black px-3 py-1 rounded-full font-bold">
-            🛒 {cart.length}
-          </div>
+          <a className="px-4 py-2 border border-zinc-700 rounded-xl hover:bg-zinc-800 transition">
+            Adidas
+          </a>
 
           <a
-            href="https://www.instagram.com/true.happinnes_/"
-            target="_blank"
-            className="border border-pink-500 px-4 py-2 rounded-xl hover:bg-pink-900/30 transition text-center"
+            href="https://wa.me/5491173600891"
+            className="px-4 py-2 bg-white text-black rounded-xl font-bold hover:scale-105 transition"
           >
-            Instagram
+            WhatsApp
           </a>
+
         </div>
-      </nav>
+
+      </header>
 
       {/* HERO */}
-      <section className="text-center py-16 md:py-24 px-4 md:px-6">
-        <h2 className="text-3xl md:text-7xl font-bold mb-6 leading-tight">
-          Streetwear & Zapatillas
+      <section className="text-center py-20 px-6 bg-gradient-to-br from-black via-zinc-900 to-black">
+
+        <h2 className="text-4xl md:text-6xl font-bold mb-4">
+          Sneakers & Streetwear Premium
         </h2>
 
-        <p className="text-zinc-400 text-base md:text-lg max-w-2xl mx-auto mb-10">
-          Ropa urbana, zapatillas importadas y estilo auténtico. Calidad premium y envíos rápidos.
+        <p className="text-zinc-400 max-w-2xl mx-auto mb-8">
+          Zapatillas importadas Nike y Adidas • Calidad premium • Envíos rápidos
         </p>
 
         <a
           href="https://wa.me/5491173600891"
-          target="_blank"
-          className="bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-semibold hover:scale-105 transition inline-block"
+          className="bg-white text-black px-8 py-3 rounded-xl font-bold hover:scale-105 transition"
         >
-          Consultar por WhatsApp
+          Comprar ahora
         </a>
+
       </section>
 
-      {/* CATEGORIAS */}
-      <section className="px-4 md:px-6 py-12 md:py-16">
-        <h3 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-12">
-          Categorías
+      {/* MARCAS */}
+      <section className="px-6 py-14 text-center">
+
+        <h3 className="text-3xl font-bold mb-10">
+          🏷️ Marcas oficiales
         </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
 
-          {[
-            {
-              title: "Zapatillas",
-              img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-            },
-            {
-              title: "Ropa",
-              img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
-            },
-            {
-              title: "Accesorios",
-              img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
-            },
-          ].map((c, i) => (
-            <div
-              key={i}
-              className="relative rounded-3xl overflow-hidden group"
-            >
-              <img
-                src={c.img}
-                className="w-full h-60 md:h-80 object-cover group-hover:scale-110 transition duration-500"
-              />
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <h4 className="text-2xl md:text-3xl font-bold">
-                  {c.title}
-                </h4>
-              </div>
-            </div>
-          ))}
+          <div className="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 hover:scale-105 transition">
+            <h4 className="text-2xl font-bold">Nike</h4>
+            <p className="text-zinc-400">Just Do It</p>
+          </div>
+
+          <div className="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 hover:scale-105 transition">
+            <h4 className="text-2xl font-bold">Adidas</h4>
+            <p className="text-zinc-400">Impossible is Nothing</p>
+          </div>
+
+          <div className="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 hover:scale-105 transition">
+            <h4 className="text-2xl font-bold">Streetwear</h4>
+            <p className="text-zinc-400">Urban Style</p>
+          </div>
+
         </div>
+
       </section>
 
-      {/* PRODUCTS */}
-      <section className="px-4 md:px-6 py-16 md:py-20">
-        <h3 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-14">
-          Productos Destacados
+      {/* PRODUCTOS */}
+      <section className="px-6 py-16">
+
+        <h3 className="text-3xl font-bold text-center mb-10">
+          🔥 Productos destacados
         </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-          {filteredProducts.map((p, i) => (
+          {products.map((p, i) => (
             <div
               key={i}
-              className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 hover:scale-105 transition"
+              className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:scale-105 transition shadow-lg"
             >
-              <img src={p.img} className="w-full h-60 md:h-80 object-cover" />
 
-              <div className="p-4 md:p-6">
-                <h4 className="text-lg md:text-2xl font-bold mb-2">
+              <img
+                src={p.img}
+                className="h-72 w-full object-cover"
+              />
+
+              <div className="p-5">
+
+                <span className="text-xs text-zinc-400">
+                  {p.brand}
+                </span>
+
+                <h4 className="text-xl font-bold mt-1">
                   {p.name}
                 </h4>
 
-                <p className="text-xl md:text-3xl font-bold mb-5">
+                <p className="text-2xl font-bold mt-3">
                   ${p.price.toLocaleString()}
                 </p>
 
-                <button
-                  onClick={() => addToCart(p)}
-                  className="bg-white text-black px-4 py-2 rounded-xl font-semibold w-full"
+                <a
+                  href={`https://wa.me/5491173600891?text=Hola! quiero comprar ${p.name}`}
+                  className="mt-4 inline-block bg-white text-black px-4 py-2 rounded-xl font-bold w-full text-center hover:scale-105 transition"
                 >
-                  Agregar al carrito
-                </button>
+                  Comprar
+                </a>
+
               </div>
+
             </div>
           ))}
+
         </div>
-      </section>
 
-      {/* CART */}
-      <section className="px-4 md:px-6 py-10 border-t border-zinc-800">
-        <h3 className="text-2xl md:text-3xl font-bold mb-4">
-          🛒 Carrito
-        </h3>
-
-        {cart.length === 0 ? (
-          <p className="text-zinc-500">Carrito vacío</p>
-        ) : (
-          <>
-            {cart.map((p, i) => (
-              <div
-                key={i}
-                className="flex justify-between bg-zinc-900 p-3 rounded mb-2"
-              >
-                <span className="text-sm md:text-base">{p.name}</span>
-                <button
-                  onClick={() => removeFromCart(i)}
-                  className="text-red-400"
-                >
-                  eliminar
-                </button>
-              </div>
-            ))}
-
-            <button
-              onClick={sendCartWhatsApp}
-              className="mt-4 bg-green-500 text-black px-6 py-3 rounded font-bold w-full md:w-auto"
-            >
-              Comprar todo por WhatsApp
-            </button>
-          </>
-        )}
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-zinc-800 py-8 text-center text-zinc-500 text-sm">
-        <p>© 2026 TRUE HAPPINNES - Todos los derechos reservados</p>
+      <footer className="text-center text-zinc-500 py-10 border-t border-zinc-800 mt-10">
+        © 2026 TRUE HAPPINNES • Sneakers Premium
       </footer>
+
     </main>
   );
 }
