@@ -30,6 +30,146 @@ export default function Zapatillas() {
       price: "$300.000",
       img: "/zapa6.jpg",
     },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
+    {
+      name: "Yeezy Boost",
+      price: "$300.000",
+      img: "/zapa6.jpg",
+    },
   ];
 
   return (
