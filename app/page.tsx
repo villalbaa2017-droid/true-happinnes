@@ -1,121 +1,234 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
   const products = [
     {
-      name: "Nike Air Force 1",
-      price: 180000,
-      img: "https://source.unsplash.com/600x600/?nike,sneakers",
-    },
-    {
-      name: "Adidas Originals",
-      price: 165000,
-      img: "https://source.unsplash.com/600x600/?adidas,shoes",
-    },
-    {
-      name: "Streetwear Hoodie",
-      price: 95000,
-      img: "https://source.unsplash.com/600x600/?streetwear,hoodie",
-    },
-    {
       name: "Nike Dunk Low",
-      price: 200000,
-      img: "https://source.unsplash.com/600x600/?nike,dunk",
+      price: 180000,
+      img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
     },
     {
-      name: "Adidas Campus",
-      price: 170000,
-      img: "https://source.unsplash.com/600x600/?adidas,campus",
+      name: "Buzos Oversize",
+      price: 95000,
+      img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
     },
     {
-      name: "Urban Outfit",
-      price: 85000,
-      img: "https://source.unsplash.com/600x600/?urban,fashion",
+      name: "Accesorios Streetwear",
+      price: 35000,
+      img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
     },
   ];
 
+  const [cart, setCart] = useState<any[]>([]);
+  const [search, setSearch] = useState("");
+
+  const addToCart = (product: any) => {
+    setCart([...cart, product]);
+  };
+
+  const removeFromCart = (index: number) => {
+    const newCart = [...cart];
+    newCart.splice(index, 1);
+    setCart(newCart);
+  };
+
+  const filteredProducts = products.filter((p) =>
+    p.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const sendCartWhatsApp = () => {
+    const message =
+      "Hola! quiero comprar:%0A" +
+      cart.map((p) => `- ${p.name} ($${p.price})`).join("%0A");
+
+    window.open(
+      `https://wa.me/5491173600891?text=${message}`,
+      "_blank"
+    );
+  };
+
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main
+      className="min-h-screen text-white bg-cover bg-center bg-fixed overflow-x-hidden"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('/publicskate.jpg')",
+      }}
+    >
+      {/* NAVBAR */}
+      <nav className="flex flex-col md:flex-row justify-between items-center gap-4 p-4 md:p-6 border-b border-zinc-800 backdrop-blur-md bg-black/30">
 
-      {/* NAV */}
-      <nav className="flex justify-between items-center p-6 border-b border-zinc-800">
-        <h1 className="text-2xl font-bold tracking-widest">
-          TRUE HAPPINESS STORE
-        </h1>
+        <div className="flex items-center gap-3">
+          <img
+            src="/logo.jpg"
+            alt="logo"
+            className="w-10 h-10 md:w-14 md:h-14 rounded-full object-cover"
+          />
 
-        <a
-          href="https://wa.me/5491156970809"
-          className="bg-white text-black px-4 py-2 rounded-xl font-bold"
-        >
-          WhatsApp
-        </a>
+          <h1 className="text-xl md:text-3xl font-bold tracking-widest text-center md:text-left">
+            TRUE HAPPINNES
+          </h1>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
+
+          <input
+            type="text"
+            placeholder="Buscar..."
+            className="px-3 py-2 rounded bg-zinc-800 text-white outline-none w-full md:w-auto"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+          <div className="bg-white text-black px-3 py-1 rounded-full font-bold">
+            🛒 {cart.length}
+          </div>
+
+          <a
+            href="https://www.instagram.com/true.happinnes_/"
+            target="_blank"
+            className="border border-pink-500 px-4 py-2 rounded-xl hover:bg-pink-900/30 transition text-center"
+          >
+            Instagram
+          </a>
+        </div>
       </nav>
 
       {/* HERO */}
-      <section className="text-center py-20 px-6">
-        <h2 className="text-5xl font-bold mb-4">
-          Nike • Adidas • Streetwear
+      <section className="text-center py-16 md:py-24 px-4 md:px-6">
+        <h2 className="text-3xl md:text-7xl font-bold mb-6 leading-tight">
+          Streetwear & Zapatillas
         </h2>
 
-        <p className="text-zinc-400 max-w-xl mx-auto mb-8">
-          Ropa urbana, zapatillas importadas y estilo premium en un solo lugar.
+        <p className="text-zinc-400 text-base md:text-lg max-w-2xl mx-auto mb-10">
+          Ropa urbana, zapatillas importadas y estilo auténtico. Calidad premium y envíos rápidos.
         </p>
 
         <a
-          href="https://wa.me/5491156970809"
-          className="bg-white text-black px-6 py-3 rounded-xl font-bold"
+          href="https://wa.me/5491173600891"
+          target="_blank"
+          className="bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-semibold hover:scale-105 transition inline-block"
         >
           Consultar por WhatsApp
         </a>
       </section>
 
-      {/* PRODUCTOS */}
-      <section className="px-6 pb-20">
-
-        <h3 className="text-3xl font-bold text-center mb-10">
-          🛍 Productos Destacados
+      {/* CATEGORIAS */}
+      <section className="px-4 md:px-6 py-12 md:py-16">
+        <h3 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-12">
+          Categorías
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
 
-          {products.map((p, i) => (
+          {[
+            {
+              title: "Zapatillas",
+              img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+            },
+            {
+              title: "Ropa",
+              img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+            },
+            {
+              title: "Accesorios",
+              img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
+            },
+          ].map((c, i) => (
             <div
               key={i}
-              className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:scale-105 transition"
+              className="relative rounded-3xl overflow-hidden group"
             >
-
               <img
-                src={p.img}
-                className="w-full h-72 object-cover"
+                src={c.img}
+                className="w-full h-60 md:h-80 object-cover group-hover:scale-110 transition duration-500"
               />
-
-              <div className="p-5">
-
-                <h4 className="text-xl font-bold mb-2">
-                  {p.name}
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <h4 className="text-2xl md:text-3xl font-bold">
+                  {c.title}
                 </h4>
-
-                <p className="text-zinc-400 mb-4">
-                  ${p.price.toLocaleString()}
-                </p>
-
-                <a
-                  href={`https://wa.me/5491156970809?text=Hola! quiero info de ${p.name}`}
-                  className="bg-white text-black px-4 py-2 rounded-xl font-semibold inline-block w-full text-center"
-                >
-                  Comprar
-                </a>
-
               </div>
             </div>
           ))}
-
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="text-center text-zinc-500 py-10 border-t border-zinc-800">
-        © 2026 TRUE HAPPINESS
-      </footer>
+      {/* PRODUCTS */}
+      <section className="px-4 md:px-6 py-16 md:py-20">
+        <h3 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-14">
+          Productos Destacados
+        </h3>
 
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+          {filteredProducts.map((p, i) => (
+            <div
+              key={i}
+              className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 hover:scale-105 transition"
+            >
+              <img src={p.img} className="w-full h-60 md:h-80 object-cover" />
+
+              <div className="p-4 md:p-6">
+                <h4 className="text-lg md:text-2xl font-bold mb-2">
+                  {p.name}
+                </h4>
+
+                <p className="text-xl md:text-3xl font-bold mb-5">
+                  ${p.price.toLocaleString()}
+                </p>
+
+                <button
+                  onClick={() => addToCart(p)}
+                  className="bg-white text-black px-4 py-2 rounded-xl font-semibold w-full"
+                >
+                  Agregar al carrito
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CART */}
+      <section className="px-4 md:px-6 py-10 border-t border-zinc-800">
+        <h3 className="text-2xl md:text-3xl font-bold mb-4">
+          🛒 Carrito
+        </h3>
+
+        {cart.length === 0 ? (
+          <p className="text-zinc-500">Carrito vacío</p>
+        ) : (
+          <>
+            {cart.map((p, i) => (
+              <div
+                key={i}
+                className="flex justify-between bg-zinc-900 p-3 rounded mb-2"
+              >
+                <span className="text-sm md:text-base">{p.name}</span>
+                <button
+                  onClick={() => removeFromCart(i)}
+                  className="text-red-400"
+                >
+                  eliminar
+                </button>
+              </div>
+            ))}
+
+            <button
+              onClick={sendCartWhatsApp}
+              className="mt-4 bg-green-500 text-black px-6 py-3 rounded font-bold w-full md:w-auto"
+            >
+              Comprar todo por WhatsApp
+            </button>
+          </>
+        )}
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-zinc-800 py-8 text-center text-zinc-500 text-sm">
+        <p>© 2026 TRUE HAPPINNES - Todos los derechos reservados</p>
+      </footer>
     </main>
   );
 }
