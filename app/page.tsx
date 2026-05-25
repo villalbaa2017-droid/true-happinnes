@@ -1,7 +1,6 @@
 "use client";
 
 export default function Home() {
-
   const products = [
     {
       name: "Nike Air Force 1",
@@ -26,43 +25,51 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
 
-      {/* HEADER */}
-      <header className="flex flex-col md:flex-row justify-between items-center p-6 border-b border-zinc-800 bg-zinc-950/70 backdrop-blur-md">
+      {/* NAVBAR */}
+      <header className="flex flex-col md:flex-row justify-between items-center gap-4 p-5 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
 
         <h1 className="text-2xl md:text-3xl font-bold tracking-widest">
           TRUE HAPPINNES
         </h1>
 
-        <div className="flex gap-3 mt-4 md:mt-0">
+        <div className="flex flex-wrap gap-3 justify-center">
 
-          <a className="px-4 py-2 border border-zinc-700 rounded-xl hover:bg-zinc-800 transition">
-            Nike
+          <a
+            href="https://www.instagram.com/true.happinnes_/"
+            target="_blank"
+            className="px-4 py-2 rounded-xl border border-pink-500 hover:bg-pink-900/30"
+          >
+            📸 Instagram
           </a>
 
-          <a className="px-4 py-2 border border-zinc-700 rounded-xl hover:bg-zinc-800 transition">
-            Adidas
+          <a
+            href="https://www.tiktok.com"
+            target="_blank"
+            className="px-4 py-2 rounded-xl border border-purple-500 hover:bg-purple-900/30"
+          >
+            🎵 TikTok
           </a>
 
           <a
             href="https://wa.me/5491173600891"
-            className="px-4 py-2 bg-white text-black rounded-xl font-bold hover:scale-105 transition"
+            target="_blank"
+            className="px-4 py-2 rounded-xl bg-white text-black font-bold hover:scale-105 transition"
           >
             WhatsApp
           </a>
 
         </div>
-
       </header>
 
       {/* HERO */}
-      <section className="text-center py-20 px-6 bg-gradient-to-br from-black via-zinc-900 to-black">
+      <section className="text-center py-28 px-6 bg-gradient-to-b from-black via-zinc-900 to-black">
 
         <h2 className="text-4xl md:text-6xl font-bold mb-4">
           Sneakers & Streetwear Premium
         </h2>
 
         <p className="text-zinc-400 max-w-2xl mx-auto mb-8">
-          Zapatillas importadas Nike y Adidas • Calidad premium • Envíos rápidos
+          Zapatillas importadas Nike y Adidas • Estilo urbano • Calidad premium • Envíos rápidos
         </p>
 
         <a
@@ -75,25 +82,23 @@ export default function Home() {
       </section>
 
       {/* MARCAS */}
-      <section className="px-6 py-14 text-center">
+      <section className="px-6 py-16 text-center">
 
-        <h3 className="text-3xl font-bold mb-10">
-          🏷️ Marcas oficiales
-        </h3>
+        <h3 className="text-3xl font-bold mb-10">🏷️ Marcas</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
 
-          <div className="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 hover:scale-105 transition">
+          <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800">
             <h4 className="text-2xl font-bold">Nike</h4>
             <p className="text-zinc-400">Just Do It</p>
           </div>
 
-          <div className="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 hover:scale-105 transition">
+          <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800">
             <h4 className="text-2xl font-bold">Adidas</h4>
             <p className="text-zinc-400">Impossible is Nothing</p>
           </div>
 
-          <div className="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 hover:scale-105 transition">
+          <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800">
             <h4 className="text-2xl font-bold">Streetwear</h4>
             <p className="text-zinc-400">Urban Style</p>
           </div>
@@ -114,31 +119,24 @@ export default function Home() {
           {products.map((p, i) => (
             <div
               key={i}
-              className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:scale-105 transition shadow-lg"
+              className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:scale-105 transition"
             >
 
-              <img
-                src={p.img}
-                className="h-72 w-full object-cover"
-              />
+              <img src={p.img} className="h-72 w-full object-cover" />
 
               <div className="p-5">
 
-                <span className="text-xs text-zinc-400">
-                  {p.brand}
-                </span>
+                <span className="text-xs text-zinc-400">{p.brand}</span>
 
-                <h4 className="text-xl font-bold mt-1">
-                  {p.name}
-                </h4>
+                <h4 className="text-xl font-bold">{p.name}</h4>
 
-                <p className="text-2xl font-bold mt-3">
+                <p className="text-2xl font-bold mt-2">
                   ${p.price.toLocaleString()}
                 </p>
 
                 <a
-                  href={`https://wa.me/5491173600891?text=Hola! quiero comprar ${p.name}`}
-                  className="mt-4 inline-block bg-white text-black px-4 py-2 rounded-xl font-bold w-full text-center hover:scale-105 transition"
+                  href={`https://wa.me/5491173600891?text=Hola! quiero ${p.name}`}
+                  className="mt-4 block text-center bg-white text-black py-2 rounded-xl font-bold"
                 >
                   Comprar
                 </a>
@@ -149,12 +147,32 @@ export default function Home() {
           ))}
 
         </div>
+      </section>
+
+      {/* INFO EXTRA */}
+      <section className="px-6 py-16 text-center border-t border-zinc-800">
+
+        <h3 className="text-3xl font-bold mb-6">
+          📦 Envíos y Pagos
+        </h3>
+
+        <p className="text-zinc-400 max-w-2xl mx-auto">
+          Envíos a todo el país • Pagos por transferencia • Mercado Pago • Efectivo
+        </p>
 
       </section>
 
       {/* FOOTER */}
-      <footer className="text-center text-zinc-500 py-10 border-t border-zinc-800 mt-10">
-        © 2026 TRUE HAPPINNES • Sneakers Premium
+      <footer className="text-center text-zinc-500 py-10 border-t border-zinc-800">
+
+        <p>© 2026 TRUE HAPPINNES</p>
+
+        <div className="flex justify-center gap-4 mt-3">
+          <a href="https://www.instagram.com/true.happinnes_/">Instagram</a>
+          <a href="https://wa.me/5491173600891">WhatsApp</a>
+          <a href="https://www.tiktok.com">TikTok</a>
+        </div>
+
       </footer>
 
     </main>
