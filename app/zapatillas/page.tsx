@@ -2,7 +2,7 @@ export default function Zapatillas() {
   const zapatillas = [
     {
       name: "Adidas Grand Court Cloudfoam Comfort",
-      price: "NO DISPONIBLES",
+      price: "NO DISPONIBLES1",
       img: "/zapas1.jpg",
     },
     {
