@@ -3,7 +3,7 @@ export default function Zapatillas() {
     {
       name: "Adidas Grand Court Cloudfoam Comfort",
       price: "NO DISPONIBLES",
-      img: "/zapas1.jpg",
+      img: "/zapas.jpg",
     },
     {
       name: "Air Force 1",
