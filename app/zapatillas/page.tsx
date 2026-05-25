@@ -1,7 +1,7 @@
 export default function Zapatillas() {
   const zapatillas = [
     {
-      name: "Nike Dunk Low",
+      name: "Adidas Grand Court Cloudfoam Comfort",
       price: "$180.000",
       img: "/zapa1.jpg",
     },
