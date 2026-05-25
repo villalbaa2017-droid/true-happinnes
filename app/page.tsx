@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const products = [
@@ -54,15 +55,14 @@ export default function Home() {
       className="min-h-screen text-white bg-cover bg-center bg-fixed overflow-x-hidden"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('/publicskate.jpg')",
+          "linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('/skate.jpg')",
       }}
     >
       {/* NAVBAR */}
       <nav className="flex flex-col md:flex-row justify-between items-center gap-4 p-4 md:p-6 border-b border-zinc-800 backdrop-blur-md bg-black/30">
-
         <div className="flex items-center gap-3">
           <img
-            src="/logo.jpg.jpg"
+            src="/logo.jpg"
             alt="logo"
             className="w-14 h-14 md:w-20 md:h-20 rounded-full object-cover"
           />
@@ -73,7 +73,6 @@ export default function Home() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
-
           <input
             type="text"
             placeholder="Buscar..."
@@ -102,7 +101,7 @@ export default function Home() {
         </h2>
 
         <p className="text-zinc-400 text-base md:text-lg max-w-2xl mx-auto mb-10">
-          Ropa urbana, zapatillas importadas y estilo auténtico. Calidad premium y envíos rápidos.
+          Ropa urbana, zapatillas importadas y estilo auténtico.
         </p>
 
         <a
@@ -121,53 +120,59 @@ export default function Home() {
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-
           {[
             {
               title: "Zapatillas",
               img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+              link: "/zapatillas",
             },
             {
               title: "Ropa",
               img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+              link: "/ropa",
             },
             {
               title: "Accesorios",
               img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
+              link: "/accesorios",
             },
           ].map((c, i) => (
-            <div
-              key={i}
-              className="relative rounded-3xl overflow-hidden group"
-            >
-              <img
-                src={c.img}
-                className="w-full h-60 md:h-80 object-cover group-hover:scale-110 transition duration-500"
-              />
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <h4 className="text-2xl md:text-3xl font-bold">
-                  {c.title}
-                </h4>
+            <Link key={i} href={c.link}>
+              <div className="relative rounded-3xl overflow-hidden group cursor-pointer">
+                <img
+                  src={c.img}
+                  alt={c.title}
+                  className="w-full h-60 md:h-80 object-cover group-hover:scale-110 transition duration-500"
+                />
+
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <h4 className="text-2xl md:text-3xl font-bold">
+                    {c.title}
+                  </h4>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* PRODUCTS */}
+      {/* PRODUCTOS */}
       <section className="px-4 md:px-6 py-16 md:py-20">
         <h3 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-14">
           Productos Destacados
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
           {filteredProducts.map((p, i) => (
             <div
               key={i}
               className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 hover:scale-105 transition"
             >
-              <img src={p.img} className="w-full h-60 md:h-80 object-cover" />
+              <img
+                src={p.img}
+                alt={p.name}
+                className="w-full h-60 md:h-80 object-cover"
+              />
 
               <div className="p-4 md:p-6">
                 <h4 className="text-lg md:text-2xl font-bold mb-2">
@@ -190,7 +195,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CART */}
+      {/* CARRITO */}
       <section className="px-4 md:px-6 py-10 border-t border-zinc-800">
         <h3 className="text-2xl md:text-3xl font-bold mb-4">
           🛒 Carrito
@@ -206,6 +211,7 @@ export default function Home() {
                 className="flex justify-between bg-zinc-900 p-3 rounded mb-2"
               >
                 <span className="text-sm md:text-base">{p.name}</span>
+
                 <button
                   onClick={() => removeFromCart(i)}
                   className="text-red-400"
