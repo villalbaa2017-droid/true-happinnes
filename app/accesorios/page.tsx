@@ -32,13 +32,18 @@ return (
             </a>
         </div>
         </nav>
-
+<a
+  href="/"
+  className="bg-white text-black px-4 py-2 rounded-xl font-semibold hover:scale-105 transition inline-block mb-6"
+>
+  ← Inicio
+</a>
         <div className="p-10">
         <h1 className="text-5xl font-bold text-center">
             Accesorios
         </h1>
         </div>
-        
+
         <main
   className="min-h-screen text-white bg-cover bg-center bg-fixed"
   style={{

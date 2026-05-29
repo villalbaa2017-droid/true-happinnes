@@ -98,35 +98,14 @@ export default function Home() {
       {/* PROMOCION */}
 <section className="py-20 px-6 text-center bg-black/50 backdrop-blur-md">
   
-  <h2 className="text-4xl md:text-6xl font-bold mb-6">
-    🔥 PROMOCIONES EXCLUSIVAS
+  <h2 className="text-4xl md:text-8xl font-bold mb-6">
+    PROMOCIONES EXCLUSIVAS
   </h2>
 
-  <p className="text-zinc-300 text-lg max-w-3xl mx-auto mb-8">
+  <p className="text-zinc-300 text-lg max-w-4xl mx-auto mb-8">
     Encontrá zapatillas y streetwear de calidad premium.
     Atención personalizada, envíos a todo el país y los mejores precios.
   </p>
-
-  <div className="flex flex-col md:flex-row gap-4 justify-center">
-    
-    <a
-      href="/zapatillas"
-      className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:scale-105 transition"
-    >
-      Ver Catálogo
-    </a>
-
-    {/* HERO */}
-
-    <a
-      href="https://wa.me/5491173600891"
-      target="_blank"
-      className="border border-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-black transition"
-    >
-      Consultar Ahora
-    </a>
-
-  </div>
 
 </section>
 

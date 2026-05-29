@@ -1,228 +1,91 @@
-export default function Zapatillas(): import("react/jsx-runtime").JSX.Element {
-  const zapatillas = [
+export default function zapatillas() {
+return (
+    <main className="min-h-screen bg-black text-white">
 
-
-    {
-      name: "Adidas Grand Court Cloudfoam Comfort",
-      price: "$200.000",
-      img:"/zapa.jpg",
-    },
-    {
-      name: "Air Force 1",
-      price: "$210.000",
-      img: "/zapa2.jpg",
-    },
-    {
-      name: "Jordan 1",
-      price: "$250.000",
-      img: "/zapa3.jpg",
-    },
-    {
-      name: "Adidas Campus",
-      price: "$170.000",
-      img: "/zapa4.jpg",
-    },
-    {
-      name: "New Balance 550",
-      price: "$230.000",
-      img: "/zapa5.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-    {
-      name: "Yeezy Boost",
-      price: "$300.000",
-      img: "/zapa6.jpg",
-    },
-];
-
-  return (
-    <main className="min-h-screen bg-black text-white p-10">
-
-      <h1 className="text-5xl font-bold mb-10 text-center">
-        Zapatillas
-      </h1>
-
-      <div className="grid md:grid-cols-3 gap-8">
-
-        {zapatillas.map((zapa, i) => (
-          <div
-            key={zapa.img}
-            className="bg-zinc-900 rounded-3xl overflow-hidden hover:scale-105 transition duration-300 border border-zinc-800"
-          >
-            <img
-              src={zapa.img}
-              alt={zapa.name}
-              className="w-full h-72 object-cover"
+      {/* NAVBAR */}
+    <nav className="flex flex-col md:flex-row justify-between items-center gap-4 p-4 md:p-6 border-b border-zinc-800 backdrop-blur-md bg-black/30">
+        <div className="flex items-center gap-3">
+                <img
+            src="/logo.jpg"
+            alt="logo"
+            className="w-14 h-14 md:w-20 md:h-20 rounded-full object-cover"
             />
 
-            <div className="p-6">
+            <h1 className="text-xl md:text-3xl font-bold tracking-widest text-center md:text-left">
+            TRUE HAPPINNES
+            </h1>
+        </div>
 
-              <h2 className="text-2xl font-bold mb-2">
-                {zapa.name}
-              </h2>
+        <div className="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
+            <input
+            type="text"
+            placeholder="Buscar..."
+            className="px-3 py-2 rounded bg-zinc-800 text-white outline-none w-full md:w-auto"
+            />
 
-              <p className="text-zinc-400 mb-4">
-                Importadas 🔥
-              </p>
+            <a
+            href="https://www.instagram.com/true.happinnes_/"
+            target="_blank"
+            className="border border-pink-500 px-4 py-2 rounded-xl hover:bg-pink-900/30 transition text-center"
+            >
+            Instagram
+            </a>
+        </div>
+        </nav>
 
-              <p className="text-3xl font-bold mb-5">
-                {zapa.price}
-              </p>
+        <div className="p-10">
+        <h1 className="text-5xl font-bold text-center">
+            Ropa
+        </h1>
+        </div>
+        <a
+  href="/"
+  className="bg-white text-black px-4 py-2 rounded-xl font-semibold hover:scale-105 transition inline-block mb-6"
+>
+  ← Inicio
+</a>
 
-              <a
-                href="https://wa.me/5491173600891"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-black px-5 py-3 rounded-xl inline-block font-semibold hover:scale-105 transition"
-              >
-                Comprar
-              </a>
+        <main
+  className="min-h-screen text-white bg-cover bg-center bg-fixed"
+  style={{
+    backgroundImage:
+      "linear-gradient(rgba(0,0,0,0.75), rgba(118,212,235,0.85)), url('/publicskate.jpg')",
+  }}
+></main>
+<div className="p-10">
 
-            </div>
-          </div>
-        ))}
+  <h2 className="text-4xl font-bold mb-6">
+    Adidas
+  </h2>
 
-      </div>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+    <img src="/adidas1.jpg" alt="Adidas" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/adidas2.jpg" alt="Adidas" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/adidas3.jpg" alt="Adidas" className="rounded-2xl w-full h-80 object-cover" />
+  </div>
+
+  <h2 className="text-4xl font-bold mb-6">
+    Nike
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+    <img src="/nike1.jpg" alt="Nike" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/nike2.jpg" alt="Nike" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/nike3.jpg" alt="Nike" className="rounded-2xl w-full h-80 object-cover" />
+  </div>
+
+  <h2 className="text-4xl font-bold mb-6">
+    Jordan
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <img src="/jordan1.jpg" alt="Jordan" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/jordan2.jpg" alt="Jordan" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/jordan3.jpg" alt="Jordan" className="rounded-2xl w-full h-80 object-cover" />
+  </div>
+
+</div>
 
     </main>
-  );
+    );
 }
