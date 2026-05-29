@@ -104,13 +104,13 @@ export default function Home() {
           Ropa urbana, zapatillas importadas y estilo auténtico.
         </p>
 
-        <a
-          href="https://wa.me/5491173600891"
+          <a
+          href="https://wa.me/c/257011010810110"
           target="_blank"
           className="bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-semibold hover:scale-105 transition inline-block"
-        >
-          Consultar por WhatsApp
-        </a>
+          >
+          Ver Catálogo
+          </a>
       </section>
 
       {/* CATEGORIAS */}
