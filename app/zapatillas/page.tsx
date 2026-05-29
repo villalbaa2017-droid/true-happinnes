@@ -46,7 +46,7 @@ return (
         <div className="p-10">
 
   <h2 className="text-4xl font-bold mb-6">
-    Adidas
+    ADIDAS
   </h2>
 
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -54,7 +54,6 @@ return (
     <img src="/ADIDAS1.jpeg" alt="Adidas athletic shoe with modern streamlined silhouette, cushioned midsole, and performance-oriented design" className="rounded-2xl w-full h-80 object-cover" />
     <img src="/ADIDAS2.jpeg" alt="Adidas running shoe with thick cushioned midsole and mesh upper for breathability, designed for long-distance comfort" className="rounded-2xl w-full h-80 object-cover" />
     <img src="/ADIDAS3.jpeg" alt="Adidas training shoe with padded ankle collar, reinforced heel counter, and stable base for lateral movements" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS4.jpeg" alt="Adidas casual sneaker with minimalist aesthetic, clean lines, and versatile neutral colorway suitable for everyday wear" className="rounded-2xl w-full h-80 object-cover" />
     <img src="/ADIDAS5.jpeg" alt="Adidas basketball shoe with extended ankle support collar, textured outsole for court grip, and reinforced side panels" className="rounded-2xl w-full h-80 object-cover" />
     <img src="/ADIDAS6.jpeg" alt="Adidas lifestyle shoe blending comfort cushioning with contemporary street style aesthetics for casual everyday use" className="rounded-2xl w-full h-80 object-cover" />
     <img src="/ADIDAS7.jpeg" alt="Adidas sneaker showcasing bold color accents against neutral base, with ergonomic curves and contoured fit" className="rounded-2xl w-full h-80 object-cover" />
@@ -68,23 +67,53 @@ return (
   </div>
 
   <h2 className="text-4xl font-bold mb-6">
-    Nike
+    NIKE
   </h2>
 
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-    <img src="/nike1.jpg" alt="Nike running shoe with responsive foam midsole, aerodynamic upper, and dynamic design for fast-paced performance" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/nike2.jpg" alt="Nike athletic sneaker with mesh ventilation ports for breathability and secure lacing system for locked-down fit" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/nike3.jpg" alt="Nike basketball shoe engineered with ankle stability support and thick cushioned midsole for dynamic court performance" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/NIKE1.jpeg" alt="Nike running shoe featuring responsive foam midsole, aerodynamic mesh upper with ventilation, and sleek silhouette designed for rapid movement and endurance activities" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/NIKE2.jpeg" alt="Nike athletic sneaker displaying perforated mesh panels for airflow, reinforced eyelets with secure lacing system, and cushioned midsole for everyday comfort" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/NIKE3.jpeg" alt="Nike basketball shoe with extended ankle collar for lateral support, padded heel counter, thick foam midsole, and textured outsole for court traction during high-impact movements" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/NIKE4.jpeg" alt="Nike basketball shoe featuring reinforced ankle support, cushioned midsole technology, durable rubber outsole, and stable base engineered for intense court performance" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/NIKE5.jpeg" alt="Nike basketball shoe with protective ankle reinforcement, responsive cushioning system, grip-focused outsole pattern, and supportive heel structure for dynamic play" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/NIKE6.jpeg" alt="Nike basketball shoe combining padded ankle collar, cushioned midsole for shock absorption, textured court grip sole, and contoured fit for enhanced stability" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/NIKE7.jpeg" alt="Nike basketball shoe showcasing reinforced ankle support system, responsive foam cushioning, patterned outsole traction, and engineered base for explosive court movements" className="rounded-2xl w-full h-80 object-cover" />
+
   </div>
 
   <h2 className="text-4xl font-bold mb-6">
-    Jordan
+    DC
   </h2>
 
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <img src="/jordan1.jpg" alt="Air Jordan iconic basketball shoe featuring signature winged Jumpman logo and premium leather upper with heritage construction" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/jordan2.jpg" alt="Air Jordan retro model displaying classic silhouette and heritage colorway evoking basketball nostalgia and cultural legacy" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/jordan3.jpg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/DC.jpeg" alt="Air Jordan iconic basketball shoe featuring signature winged Jumpman logo and premium leather upper with heritage construction" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/DCC.jpeg" alt="Air Jordan retro model displaying classic silhouette and heritage colorway evoking basketball nostalgia and cultural legacy" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/DCCC.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/DCCCC.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/DCCCCC.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/DCCCCCC.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/DCCCCCCC.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/DCCCCCCCC.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+  </div>
+
+
+  <h2 className="text-4xl font-bold mb-6">
+    VANS
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <img src="/VANS.jpeg" alt="Air Jordan iconic basketball shoe featuring signature winged Jumpman logo and premium leather upper with heritage construction" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/VANS1.jpeg" alt="Air Jordan retro model displaying classic silhouette and heritage colorway evoking basketball nostalgia and cultural legacy" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/VANS2.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/VANS3.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/VANS4.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/VANS5.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/VANS6.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/VANS7.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/VANS8.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/VANS9.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/VANS10.jpeg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
+
   </div>
 
 </div>
