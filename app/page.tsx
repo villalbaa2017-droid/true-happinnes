@@ -105,11 +105,11 @@ export default function Home() {
         </p>
 
           <a
-          href="https://wa.me/c/257011010810110"
-          target="_blank"
-          className="bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-semibold hover:scale-105 transition inline-block"
+            href="https://wa.me/5491173600891"
+            target="_blank"
+            className="bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-semibold hover:scale-105 transition inline-block"
           >
-          Ver Catálogo
+              Consultar por WhatsApp
           </a>
       </section>
 
