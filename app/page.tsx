@@ -110,24 +110,6 @@ export default function Home() {
 </section>
 
 
-      <section className="text-center py-16 md:py-24 px-4 md:px-6">
-        <h2 className="text-3xl md:text-7xl font-bold mb-6 leading-tight">
-          Streetwear & Zapatillas
-        </h2>
-
-        <p className="text-zinc-400 text-base md:text-lg max-w-2xl mx-auto mb-10">
-          Ropa urbana, zapatillas importadas y estilo auténtico.
-        </p>
-
-          <a
-            href="https://wa.me/5491173600891"
-            target="_blank"
-            className="bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-semibold hover:scale-105 transition inline-block"
-          >
-              Consultar por WhatsApp
-          </a>
-      </section>
-
       {/* CATEGORIAS */}
       <section className="px-4 md:px-6 py-12 md:py-16">
         <h3 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-12">
@@ -170,6 +152,25 @@ export default function Home() {
           ))}
         </div>
       </section>
+      
+      <section className="text-center py-16 md:py-24 px-4 md:px-6">
+        <h2 className="text-3xl md:text-7xl font-bold mb-6 leading-tight">
+          Streetwear & Zapatillas
+        </h2>
+
+        <p className="text-zinc-400 text-base md:text-lg max-w-2xl mx-auto mb-10">
+          Ropa urbana, zapatillas importadas y estilo auténtico.
+        </p>
+
+          <a
+            href="https://wa.me/5491173600891"
+            target="_blank"
+            className="bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-semibold hover:scale-105 transition inline-block"
+          >
+              Consultar por WhatsApp
+          </a>
+      </section>
+
 
       {/* PRODUCTOS */}
       <section className="px-4 md:px-6 py-16 md:py-20">

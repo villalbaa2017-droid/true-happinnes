@@ -35,24 +35,9 @@ return (
 
         <div className="p-10">
         <h1 className="text-5xl font-bold text-center">
-            Ropa
+            Zapatillas
         </h1>
-        </div>
-        <a
-  href="/"
-  className="bg-white text-black px-4 py-2 rounded-xl font-semibold hover:scale-105 transition inline-block mb-6"
->
-  ← Inicio
-</a>
-
-        <main
-  className="min-h-screen text-white bg-cover bg-center bg-fixed"
-  style={{
-    backgroundImage:
-      "linear-gradient(rgba(0,0,0,0.75), rgba(118,212,235,0.85)), url('/publicskate.jpg')",
-  }}
-></main>
-<div className="p-10">
+        <div className="p-10">
 
   <h2 className="text-4xl font-bold mb-6">
     Adidas
@@ -85,6 +70,22 @@ return (
   </div>
 
 </div>
+        </div>
+        <a
+  href="/"
+  className="bg-white text-black px-4 py-2 rounded-xl font-semibold hover:scale-105 transition inline-block mb-6"
+>
+  ← Inicio
+</a>
+
+        <main
+  className="min-h-screen text-white bg-cover bg-center bg-fixed"
+  style={{
+    backgroundImage:
+      "linear-gradient(rgba(0,0,0,0.75), rgba(118,212,235,0.85)), url('/publicskate.jpg')",
+  }}
+></main>
+
 
     </main>
     );
