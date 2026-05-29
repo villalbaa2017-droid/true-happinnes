@@ -50,20 +50,20 @@ return (
   </h2>
 
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-    <img src="/ADIDAS.jpg" alt="Adidas sneaker, classic style with white and black colorway" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS1.jpg" alt="Adidas athletic shoe featuring modern design and performance sole" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS2.jpg" alt="Adidas running shoe with enhanced cushioning and breathable materials" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS3.jpg" alt="Adidas training shoe with supportive ankle collar and reinforced structure" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS4.jpg" alt="Adidas casual sneaker with minimalist design and clean silhouette" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS5.jpg" alt="Adidas basketball shoe with ankle support and textured grip sole" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS6.jpg" alt="Adidas lifestyle shoe combining comfort and contemporary street style" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS7.jpg" alt="Adidas sneaker with bold color accents and ergonomic design" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS8.jpg" alt="Adidas performance shoe with specialized traction pattern and responsive cushioning" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS9.jpg" alt="Adidas limited edition sneaker with premium materials and distinctive branding" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS10.jpg" alt="Adidas retro-inspired shoe with heritage design elements and classic proportions" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS11.jpg" alt="Adidas cross-training shoe built for versatility and multi-sport performance" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS12.jpg" alt="Adidas hiking boot with rugged outsole and protective toe cap for outdoor terrain" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/ADIDAS13.jpg" alt="Adidas women-specific sneaker with tailored fit and contemporary color palette" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS.jpeg" alt="Classic Adidas sneaker featuring white and black colorway with iconic three stripes design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS1.jpeg" alt="Adidas athletic shoe with modern streamlined silhouette, cushioned midsole, and performance-oriented design" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS2.jpeg" alt="Adidas running shoe with thick cushioned midsole and mesh upper for breathability, designed for long-distance comfort" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS3.jpeg" alt="Adidas training shoe with padded ankle collar, reinforced heel counter, and stable base for lateral movements" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS4.jpeg" alt="Adidas casual sneaker with minimalist aesthetic, clean lines, and versatile neutral colorway suitable for everyday wear" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS5.jpeg" alt="Adidas basketball shoe with extended ankle support collar, textured outsole for court grip, and reinforced side panels" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS6.jpeg" alt="Adidas lifestyle shoe blending comfort cushioning with contemporary street style aesthetics for casual everyday use" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS7.jpeg" alt="Adidas sneaker showcasing bold color accents against neutral base, with ergonomic curves and contoured fit" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS8.jpeg" alt="Adidas performance shoe featuring specialized traction pattern on sole for multiple surfaces and responsive foam cushioning" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS9.jpeg" alt="Adidas limited edition sneaker crafted with premium materials, featuring distinctive branding elements and exclusive design details" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS10.jpeg" alt="Adidas retro-inspired shoe celebrating heritage with classic design proportions, vintage colorways, and timeless silhouette" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS11.jpeg" alt="Adidas cross-training shoe engineered for versatility across multiple sports, featuring balanced cushioning and lateral stability" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS12.jpeg" alt="Adidas hiking boot with rugged traction outsole and protective reinforced toe cap, designed for challenging outdoor terrain" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/ADIDAS13.jpeg" alt="Adidas women-specific sneaker with tailored proportions for optimized fit, contemporary color palette, and inclusive design" className="rounded-2xl w-full h-80 object-cover" />
 
   </div>
 
@@ -72,9 +72,9 @@ return (
   </h2>
 
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-    <img src="/nike1.jpg" alt="Nike running shoe featuring responsive foam and dynamic design" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/nike2.jpg" alt="Nike athletic sneaker with enhanced ventilation and secure lacing system" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/nike3.jpg" alt="Nike basketball shoe with ankle stability and cushioned midsole for court performance" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/nike1.jpg" alt="Nike running shoe with responsive foam midsole, aerodynamic upper, and dynamic design for fast-paced performance" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/nike2.jpg" alt="Nike athletic sneaker with mesh ventilation ports for breathability and secure lacing system for locked-down fit" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/nike3.jpg" alt="Nike basketball shoe engineered with ankle stability support and thick cushioned midsole for dynamic court performance" className="rounded-2xl w-full h-80 object-cover" />
   </div>
 
   <h2 className="text-4xl font-bold mb-6">
@@ -82,9 +82,9 @@ return (
   </h2>
 
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <img src="/jordan1.jpg" alt="Air Jordan iconic basketball shoe with winged logo and premium leather construction" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/jordan2.jpg" alt="Air Jordan retro model showcasing classic silhouette and heritage colorway" className="rounded-2xl w-full h-80 object-cover" />
-    <img src="/jordan3.jpg" alt="Air Jordan limited release featuring bold graphics and premium material details" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/jordan1.jpg" alt="Air Jordan iconic basketball shoe featuring signature winged Jumpman logo and premium leather upper with heritage construction" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/jordan2.jpg" alt="Air Jordan retro model displaying classic silhouette and heritage colorway evoking basketball nostalgia and cultural legacy" className="rounded-2xl w-full h-80 object-cover" />
+    <img src="/jordan3.jpg" alt="Air Jordan limited release showcasing bold graphic elements, premium material details, and exclusive collector-focused design" className="rounded-2xl w-full h-80 object-cover" />
   </div>
 
 </div>
