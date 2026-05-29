@@ -37,6 +37,12 @@ return (
         <h1 className="text-5xl font-bold text-center">
             Zapatillas
         </h1>
+        <a
+  href="/"
+  className="bg-white text-black px-4 py-2 rounded-xl font-semibold hover:scale-105 transition inline-block mb-6"
+>
+  ← Inicio
+</a>
         <div className="p-10">
 
   <h2 className="text-4xl font-bold mb-6">
