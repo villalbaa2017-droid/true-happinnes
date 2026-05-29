@@ -94,7 +94,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* HERO */}
+      
       {/* PROMOCION */}
 <section className="py-20 px-6 text-center bg-black/50 backdrop-blur-md">
   
@@ -115,6 +115,8 @@ export default function Home() {
     >
       Ver Catálogo
     </a>
+
+    {/* HERO */}
 
     <a
       href="https://wa.me/5491173600891"
