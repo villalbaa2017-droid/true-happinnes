@@ -2,36 +2,32 @@
 
 import Link from "next/link";
 
-export default function ropa() {
-  const marcas = {
-    MODELOS: [
-      "ADIDAS.jpeg",
-      "ADIDAS1.jpeg",
-      "ADIDAS2.jpeg",
-      "ADIDAS3.jpeg",
-      "ADIDAS4.jpeg",
-      "ADIDAS5.jpeg",
-      "ADIDAS6.jpeg",
-      "ADIDAS7.jpeg",
-      "ADIDAS8.jpeg",
-      "ADIDAS9.jpeg",
-      "ADIDAS10.jpeg",
-      "ADIDAS11.jpeg",
-      "ADIDAS12.jpeg",
-      "ADIDAS13.jpeg",
-    ],
-  };
+export default function Ropa() {
+  const modelos = [
+    "ADIDAS.jpeg",
+    "ADIDAS1.jpeg",
+    "ADIDAS2.jpeg",
+    "ADIDAS3.jpeg",
+    "ADIDAS4.jpeg",
+    "ADIDAS5.jpeg",
+    "ADIDAS6.jpeg",
+    "ADIDAS7.jpeg",
+    "ADIDAS8.jpeg",
+    "ADIDAS9.jpeg",
+    "ADIDAS10.jpeg",
+    "ADIDAS11.jpeg",
+    "ADIDAS12.jpeg",
+    "ADIDAS13.jpeg",
+  ];
 
-  <main
-  className="min-h-screen text-white bg-cover bg-center bg-fixed relative"
-  style={{
-    backgroundImage:
-      "linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.92)), url('/fondo.jpg')",
-  }}
-></main>
   return (
-    <main className="min-h-screen bg-black text-white p-6">
-
+    <main
+      className="min-h-screen text-white p-6 bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.92)), url('/fondo.jpg')",
+      }}
+    >
       <div className="flex flex-col items-center gap-4 mb-10">
         <img
           src="/logo.jpg"
@@ -40,7 +36,7 @@ export default function ropa() {
         />
 
         <h1 className="text-4xl font-bold">
-          TRUE HAPPINNES
+          TRUE HAPPINESS
         </h1>
 
         <a
@@ -52,12 +48,13 @@ export default function ropa() {
         </a>
       </div>
 
-      <h2 className="text-5xl font-bold text-center mb-10">
-        <picture>
-            <source media="(min-width: )" srcset="" />
-            <img src="" alt="" />
-        </picture>opa
+      <h2 className="text-5xl font-bold text-center mb-4">
+        Ropa
       </h2>
+
+      <p className="text-center text-zinc-400 max-w-2xl mx-auto mb-10">
+        Encontrá prendas urbanas inspiradas en las últimas tendencias del streetwear.
+      </p>
 
       <Link
         href="/"
@@ -66,66 +63,54 @@ export default function ropa() {
         ← Inicio
       </Link>
 
-      <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
-
-        <div className="grid md:grid-cols-4 gap-4">
-          {marcas.adidas.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt="Adidas"
-              className="rounded-2xl h-72 w-full object-cover"
-            />
-          ))}
+      <div className="grid md:grid-cols-3 gap-4 mb-12">
+        <div className="bg-black/40 border border-zinc-700 p-4 rounded-xl text-center">
+          🚚 Envíos a todo el país
         </div>
-      </section>
 
-      <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">NIKE</h3>
-
-        <div className="grid md:grid-cols-4 gap-4">
-          {marcas.nike.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt="Nike"
-              className="rounded-2xl h-72 w-full object-cover"
-            />
-          ))}
+        <div className="bg-black/40 border border-zinc-700 p-4 rounded-xl text-center">
+          💳 Transferencia con descuento
         </div>
-      </section>
+
+        <div className="bg-black/40 border border-zinc-700 p-4 rounded-xl text-center">
+          📱 Atención personalizada
+        </div>
+      </div>
 
       <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">DC</h3>
+        <h3 className="text-3xl font-bold mb-6">MODELOS</h3>
 
         <div className="grid md:grid-cols-4 gap-4">
-          {marcas.dc.map((img, i) => (
+          {modelos.map((img, i) => (
             <img
               key={i}
               src={img}
-              alt="DC"
+              alt="Ropa"
               className="rounded-2xl h-72 w-full object-cover"
             />
           ))}
         </div>
       </section>
 
-      <section>
-        <h3 className="text-3xl font-bold mb-6">VANS</h3>
+      <section className="py-16">
+        <h3 className="text-3xl font-bold text-center mb-10">
+          ¿Por qué elegirnos?
+        </h3>
 
-        <div className="grid md:grid-cols-4 gap-4">
-          {marcas.vans.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt="Vans"
-              className="rounded-2xl h-72 w-full object-cover"
-            />
-          ))}
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-black/50 p-6 rounded-2xl">
+            🔥 Diseños urbanos
+          </div>
+
+          <div className="bg-black/50 p-6 rounded-2xl">
+            ⭐ Calidad seleccionada
+          </div>
+
+          <div className="bg-black/50 p-6 rounded-2xl">
+            👕 Comodidad para todos los días
+          </div>
         </div>
       </section>
-
     </main>
   );
 }
