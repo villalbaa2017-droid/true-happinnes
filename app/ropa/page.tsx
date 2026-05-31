@@ -1,59 +1,131 @@
-export default function Ropa() {
-return (
-    <main className="min-h-screen bg-black text-white">
+"use client";
 
-      {/* NAVBAR */}
-      <main
+import Link from "next/link";
+
+export default function ropa() {
+  const marcas = {
+    MODELOS: [
+      "ADIDAS.jpeg",
+      "ADIDAS1.jpeg",
+      "ADIDAS2.jpeg",
+      "ADIDAS3.jpeg",
+      "ADIDAS4.jpeg",
+      "ADIDAS5.jpeg",
+      "ADIDAS6.jpeg",
+      "ADIDAS7.jpeg",
+      "ADIDAS8.jpeg",
+      "ADIDAS9.jpeg",
+      "ADIDAS10.jpeg",
+      "ADIDAS11.jpeg",
+      "ADIDAS12.jpeg",
+      "ADIDAS13.jpeg",
+    ],
+  };
+
+  <main
   className="min-h-screen text-white bg-cover bg-center bg-fixed relative"
   style={{
     backgroundImage:
       "linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.92)), url('/fondo.jpg')",
   }}
 ></main>
-    <nav className="flex flex-col md:flex-row justify-between items-center gap-4 p-4 md:p-6 border-b border-zinc-800 backdrop-blur-md bg-black/30">
-        <div className="flex items-center gap-3">
-                <img
-            src="/logo.jpg"
-            alt="logo"
-            className="w-14 h-14 md:w-20 md:h-20 rounded-full object-cover"
-            />
+  return (
+    <main className="min-h-screen bg-black text-white p-6">
 
-            <h1 className="text-xl md:text-3xl font-bold tracking-widest text-center md:text-left">
-            TRUE HAPPINNES
-            </h1>
-        </div>
+      <div className="flex flex-col items-center gap-4 mb-10">
+        <img
+          src="/logo.jpg"
+          alt="logo"
+          className="w-24 h-24 rounded-full"
+        />
 
-        <div className="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
-            <input
-            type="text"
-            placeholder="Buscar..."
-            className="px-3 py-2 rounded bg-zinc-800 text-white outline-none w-full md:w-auto"
-            />
-
-            <a
-            href="https://www.instagram.com/true.happinnes_/"
-            target="_blank"
-            className="border border-pink-500 px-4 py-2 rounded-xl hover:bg-pink-900/30 transition text-center"
-            >
-            Instagram
-            </a>
-        </div>
-        </nav>
-
-        <div className="p-10">
-        <h1 className="text-5xl font-bold text-center">
-            Ropa
+        <h1 className="text-4xl font-bold">
+          TRUE HAPPINNES
         </h1>
-        <a
-  href="/"
-  className="bg-white text-black px-4 py-2 rounded-xl font-semibold hover:scale-105 transition inline-block mb-6"
->
-  ← Inicio
-</a>
-        </div>
-        
 
+        <a
+          href="https://www.instagram.com/true.happinnes_/"
+          target="_blank"
+          className="border border-pink-500 px-4 py-2 rounded-xl"
+        >
+          Instagram
+        </a>
+      </div>
+
+      <h2 className="text-5xl font-bold text-center mb-10">
+        <picture>
+            <source media="(min-width: )" srcset="" />
+            <img src="" alt="" />
+        </picture>opa
+      </h2>
+
+      <Link
+        href="/"
+        className="inline-block mb-10 bg-white text-black px-4 py-2 rounded-xl"
+      >
+        ← Inicio
+      </Link>
+
+      <section className="mb-16">
+        <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
+
+        <div className="grid md:grid-cols-4 gap-4">
+          {marcas.adidas.map((img, i) => (
+            <img
+              key={i}
+              src={img}
+              alt="Adidas"
+              className="rounded-2xl h-72 w-full object-cover"
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-16">
+        <h3 className="text-3xl font-bold mb-6">NIKE</h3>
+
+        <div className="grid md:grid-cols-4 gap-4">
+          {marcas.nike.map((img, i) => (
+            <img
+              key={i}
+              src={img}
+              alt="Nike"
+              className="rounded-2xl h-72 w-full object-cover"
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-16">
+        <h3 className="text-3xl font-bold mb-6">DC</h3>
+
+        <div className="grid md:grid-cols-4 gap-4">
+          {marcas.dc.map((img, i) => (
+            <img
+              key={i}
+              src={img}
+              alt="DC"
+              className="rounded-2xl h-72 w-full object-cover"
+            />
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h3 className="text-3xl font-bold mb-6">VANS</h3>
+
+        <div className="grid md:grid-cols-4 gap-4">
+          {marcas.vans.map((img, i) => (
+            <img
+              key={i}
+              src={img}
+              alt="Vans"
+              className="rounded-2xl h-72 w-full object-cover"
+            />
+          ))}
+        </div>
+      </section>
 
     </main>
-    );
+  );
 }

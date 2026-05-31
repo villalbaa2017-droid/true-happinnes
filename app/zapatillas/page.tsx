@@ -66,25 +66,19 @@ export default function Zapatillas() {
       "VANS25.jpeg",
       "VANS26.jpeg",
       "VANS27.jpeg",
-
-
-
-
-
-      
     ],
   };
 
-  <main
-  className="min-h-screen text-white bg-cover bg-center bg-fixed relative"
-  style={{
-    backgroundImage:
-      "linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.92)), url('/fondo.jpg')",
-  }}
-></main>
   return (
+    
     <main className="min-h-screen bg-black text-white p-6">
-
+ <main
+      className="min-h-screen text-white p-6 bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.92)), url('/fondo.jpg')",
+      }}
+    ></main>
       <div className="flex flex-col items-center gap-4 mb-10">
         <img
           src="/logo.jpg"
