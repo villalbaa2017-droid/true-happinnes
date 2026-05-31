@@ -53,8 +53,13 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black text-white">
-
+   <main
+  className="min-h-screen text-white bg-cover bg-center bg-fixed relative"
+  style={{
+    backgroundImage:
+      "linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.92)), url('/fondo.jpg')",
+  }}
+>
       <nav className="sticky top-0 z-50 backdrop-blur-lg bg-black/70 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
 

@@ -3,6 +3,13 @@ return (
     <main className="min-h-screen bg-black text-white">
 
       {/* NAVBAR */}
+      <main
+  className="min-h-screen text-white bg-cover bg-center bg-fixed relative"
+  style={{
+    backgroundImage:
+      "linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.92)), url('/fondo.jpg')",
+  }}
+></main>
     <nav className="flex flex-col md:flex-row justify-between items-center gap-4 p-4 md:p-6 border-b border-zinc-800 backdrop-blur-md bg-black/30">
         <div className="flex items-center gap-3">
                 <img
@@ -46,13 +53,6 @@ return (
         </div>
         
 
-        <main
-  className="min-h-screen text-white bg-cover bg-center bg-fixed"
-  style={{
-    backgroundImage:
-      "linear-gradient(rgba(0, 0, 0, 0), rgba(35, 115, 136, 0)), url('/Skate.jpeg')",
-  }}
-></main>
 
     </main>
     );
