@@ -48,7 +48,7 @@ return (
   className="min-h-screen text-white bg-cover bg-center bg-fixed"
   style={{
     backgroundImage:
-      "linear-gradient(rgba(0,0,0,0.75), rgba(118,212,235,0.85)), url('/publicskate.jpg')",
+      "linear-gradient(rgba(0,0,0,0.75), rgba(118,212,235,0.85)), url('/Skate.jpeg')",
   }}
 ></main>
 

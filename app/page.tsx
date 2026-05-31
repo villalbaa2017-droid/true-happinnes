@@ -1,3 +1,5 @@
+
+
 "use client";
 
 import { useState } from "react";
@@ -51,72 +53,86 @@ export default function Home() {
   };
 
   return (
-    <main
-      className="min-h-screen text-white bg-cover bg-center bg-fixed overflow-x-hidden"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(0,0,0,0.75), rgba(118, 212, 235, 0.85)), url('/publicskate.jpg')",
-      }}
-    >
-      {/* NAVBAR */}
-      <nav className="flex flex-col md:flex-row justify-between items-center gap-4 p-4 md:p-6 border-b border-zinc-800 backdrop-blur-md bg-black/30">
-        <div className="flex items-center gap-3">
-          <img
-            src="/logo.jpg"
-            alt="logo"
-            className="w-14 h-14 md:w-20 md:h-20 rounded-full object-cover"
-          />
+    <main className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black text-white">
 
-          <h1 className="text-xl md:text-3xl font-bold tracking-widest text-center md:text-left">
-            TRUE HAPPINNES
-          </h1>
-        </div>
+      <nav className="sticky top-0 z-50 backdrop-blur-lg bg-black/70 border-b border-zinc-800">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
 
-        <div className="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
-          <input
-            type="text"
-            placeholder="Buscar..."
-            className="px-3 py-2 rounded bg-zinc-800 text-white outline-none w-full md:w-auto"
-            onChange={(e) => setSearch(e.target.value)}
-          />
+          <div className="flex items-center gap-3">
+            <img
+              src="/logo.jpg"
+              alt="logo"
+              className="w-16 h-16 rounded-full object-cover"
+            />
 
-          <div className="bg-white text-black px-3 py-1 rounded-full font-bold">
-            🛒 {cart.length}
+            <h1 className="text-2xl md:text-3xl font-bold tracking-widest">
+              TRUE HAPPINESS
+            </h1>
           </div>
 
-          <a
-            href="https://www.instagram.com/true.happinnes_/"
-            target="_blank"
-            className="border border-pink-500 px-4 py-2 rounded-xl hover:bg-pink-900/30 transition text-center"
-          >
-            Instagram
-          </a>
+          <div className="flex flex-wrap gap-3 items-center">
+            <input
+              type="text"
+              placeholder="Buscar..."
+              className="px-3 py-2 rounded bg-zinc-800 text-white"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+
+            <div className="bg-white text-black px-3 py-1 rounded-full font-bold">
+              🛒 {cart.length}
+            </div>
+
+            <a
+              href="https://www.instagram.com/true.happinnes_/"
+              target="_blank"
+              className="border border-pink-500 px-4 py-2 rounded-xl hover:bg-pink-900/30 transition"
+            >
+              Instagram
+            </a>
+          </div>
         </div>
       </nav>
 
-      
-      {/* PROMOCION */}
-<section className="py-20 px-6 text-center bg-black/50 backdrop-blur-md">
-  
-  <h2 className="text-4xl md:text-8xl font-bold mb-6">
-    PROMOCIONES EXCLUSIVAS
-  </h2>
+      <section className="text-center py-24 px-6">
+        <h2 className="text-5xl md:text-7xl font-extrabold mb-6">
+          STREETWEAR PREMIUM
+        </h2>
 
-  <p className="text-zinc-300 text-lg max-w-4xl mx-auto mb-8">
-    Encontrá zapatillas y streetwear de calidad premium.
-    Atención personalizada, envíos a todo el país y los mejores precios.
-  </p>
+        <p className="text-zinc-400 max-w-3xl mx-auto mb-8 text-lg">
+          Sneakers, ropa urbana y accesorios seleccionados para destacar tu estilo.
+        </p>
 
-</section>
+        <a
+          href="https://wa.me/5491173600891"
+          target="_blank"
+          className="bg-white text-black px-8 py-4 rounded-2xl font-bold hover:scale-105 transition inline-block"
+        >
+          Consultar por WhatsApp
+        </a>
+      </section>
 
+      <section className="py-20 px-6 bg-zinc-950">
+        <h2 className="text-4xl font-bold text-center mb-12">
+          ¿Por qué elegirnos?
+        </h2>
 
-      {/* CATEGORIAS */}
-      <section className="px-4 md:px-6 py-12 md:py-16">
-        <h3 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-12">
-          Categorías
-        </h3>
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+            🚚 Envíos a todo el país
+          </div>
+          <div className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+            🔒 Compra segura
+          </div>
+          <div className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+            ⭐ Calidad premium
+          </div>
+        </div>
+      </section>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+      <section className="px-6 py-16">
+        <h3 className="text-4xl font-bold text-center mb-12">Categorías</h3>
+
+        <div className="grid md:grid-cols-3 gap-8">
           {[
             {
               title: "Zapatillas",
@@ -139,63 +155,38 @@ export default function Home() {
                 <img
                   src={c.img}
                   alt={c.title}
-                  className="w-full h-60 md:h-80 object-cover group-hover:scale-110 transition duration-500"
+                  className="w-full h-80 object-cover group-hover:scale-110 transition duration-500"
                 />
-
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <h4 className="text-2xl md:text-3xl font-bold">
-                    {c.title}
-                  </h4>
+                  <h4 className="text-3xl font-bold">{c.title}</h4>
                 </div>
               </div>
             </Link>
           ))}
         </div>
       </section>
-      
-      <section className="text-center py-16 md:py-24 px-4 md:px-6">
-        <h2 className="text-3xl md:text-7xl font-bold mb-6 leading-tight">
-          Streetwear & Zapatillas
-        </h2>
 
-        <p className="text-zinc-400 text-base md:text-lg max-w-2xl mx-auto mb-10">
-          Ropa urbana, zapatillas importadas y estilo auténtico.
-        </p>
-
-          <a
-            href="https://wa.me/5491173600891"
-            target="_blank"
-            className="bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-semibold hover:scale-105 transition inline-block"
-          >
-              Consultar por WhatsApp
-          </a>
-      </section>
-
-
-      {/* PRODUCTOS */}
-      <section className="px-4 md:px-6 py-16 md:py-20">
-        <h3 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-14">
+      <section className="px-6 py-20">
+        <h3 className="text-4xl font-bold text-center mb-14">
           Productos Destacados
         </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {filteredProducts.map((p, i) => (
             <div
               key={i}
-              className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 hover:scale-105 transition"
+              className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 hover:border-white hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
             >
               <img
                 src={p.img}
                 alt={p.name}
-                className="w-full h-60 md:h-80 object-cover"
+                className="w-full h-80 object-cover"
               />
 
-              <div className="p-4 md:p-6">
-                <h4 className="text-lg md:text-2xl font-bold mb-2">
-                  {p.name}
-                </h4>
+              <div className="p-6">
+                <h4 className="text-2xl font-bold mb-2">{p.name}</h4>
 
-                <p className="text-xl md:text-3xl font-bold mb-5">
+                <p className="text-3xl font-bold mb-5">
                   ${p.price.toLocaleString()}
                 </p>
 
@@ -211,11 +202,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CARRITO */}
-      <section className="px-4 md:px-6 py-10 border-t border-zinc-800">
-        <h3 className="text-2xl md:text-3xl font-bold mb-4">
-          🛒 Carrito
-        </h3>
+      <section id="nosotros" className="py-24 px-6 bg-zinc-950">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-6">Sobre Nosotros</h2>
+          <p className="text-zinc-400 text-lg leading-relaxed">
+            En TRUE HAPPINESS creemos que la ropa y las zapatillas son una forma
+            de expresión. Buscamos acercarte las mejores tendencias del streetwear.
+          </p>
+        </div>
+      </section>
+
+      <section className="px-6 py-10 border-t border-zinc-800">
+        <h3 className="text-3xl font-bold mb-4">🛒 Carrito</h3>
 
         {cart.length === 0 ? (
           <p className="text-zinc-500">Carrito vacío</p>
@@ -226,7 +224,7 @@ export default function Home() {
                 key={i}
                 className="flex justify-between bg-zinc-900 p-3 rounded mb-2"
               >
-                <span className="text-sm md:text-base">{p.name}</span>
+                <span>{p.name}</span>
 
                 <button
                   onClick={() => removeFromCart(i)}
@@ -239,7 +237,7 @@ export default function Home() {
 
             <button
               onClick={sendCartWhatsApp}
-              className="mt-4 bg-green-500 text-black px-6 py-3 rounded font-bold w-full md:w-auto"
+              className="mt-4 bg-green-500 text-black px-6 py-3 rounded font-bold"
             >
               Comprar todo por WhatsApp
             </button>
@@ -247,10 +245,18 @@ export default function Home() {
         )}
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-zinc-800 py-8 text-center text-zinc-500 text-sm">
-        <p>© 2026 TRUE HAPPINNES - Todos los derechos reservados</p>
+      <a
+        href="https://wa.me/5491173600891"
+        target="_blank"
+        className="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition z-50"
+      >
+        💬
+      </a>
+
+      <footer className="border-t border-zinc-800 py-10 text-center text-zinc-400">
+        <p>© 2026 TRUE HAPPINESS - Todos los derechos reservados</p>
       </footer>
     </main>
   );
 }
+
