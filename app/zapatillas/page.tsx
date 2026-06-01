@@ -7,7 +7,6 @@ export default function Zapatillas() {
       "ADIDAS1.jpeg",
       "ADIDAS2.jpeg",
       "ADIDAS3.jpeg",
-      "ADIDAS4.jpeg",
       "ADIDAS5.jpeg",
       "ADIDAS6.jpeg",
       "ADIDAS7.jpeg",
