@@ -27,7 +27,7 @@ export default function ropa() {
     ],
     Argentina: [
       "argentina1.jpeg",
-      "argentina2.jpeg",
+      
       "argentina3.jpeg",
       "argentina4.jpeg",
       "argentina5.jpeg",
@@ -44,7 +44,7 @@ export default function ropa() {
       "ropa7.jpeg",
     ],
     OTRAS_MARCAS:[
-        "face1,jpeg", 
+        "face1.jpeg", 
         "face2.jpeg",
     ],
   };
