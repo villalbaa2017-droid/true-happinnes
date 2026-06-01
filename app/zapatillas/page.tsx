@@ -129,7 +129,7 @@ export default function Zapatillas() {
         <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
 
         <div className="grid md:grid-cols-4 gap-4">
-          {marcas.adidas.map((img, i) => (
+          {marcas.ADIDAS.map((img, i) => (
             <img
               key={i}
               src={img}
@@ -144,7 +144,7 @@ export default function Zapatillas() {
         <h3 className="text-3xl font-bold mb-6">NIKE</h3>
 
         <div className="grid md:grid-cols-4 gap-4">
-          {marcas.nike.map((img, i) => (
+          {marcas.NIKE.map((img, i) => (
             <img
               key={i}
               src={img}
@@ -159,7 +159,7 @@ export default function Zapatillas() {
         <h3 className="text-3xl font-bold mb-6">DC</h3>
 
         <div className="grid md:grid-cols-4 gap-4">
-          {marcas.dc.map((img, i) => (
+          {marcas.DC.map((img, i) => (
             <img
               key={i}
               src={img}
@@ -174,7 +174,7 @@ export default function Zapatillas() {
         <h3 className="text-3xl font-bold mb-6">VANS</h3>
 
         <div className="grid md:grid-cols-4 gap-4">
-          {marcas.vans.map((img, i) => (
+          {marcas.VANS.map((img, i) => (
             <img
               key={i}
               src={img}
