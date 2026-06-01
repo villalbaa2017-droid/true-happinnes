@@ -26,7 +26,7 @@ export default function Home() {
           </div>
 
           <a
-            href="https://www.instagram.com/true.happinnes_/"
+            href="https://www.instagram.com/true.happiness_1/"
             target="_blank"
             className="border border-pink-500 px-4 py-2 rounded-xl hover:bg-pink-900/30 transition"
           >
