@@ -61,7 +61,7 @@ export default function Home() {
           </a>
         </div>
       </section>
-
+<section className="px-6 py-16"> <h3 className="text-4xl font-bold text-center mb-12">Categorías</h3> <div className="grid md:grid-cols-3 gap-8"> {[ { title: "Zapatillas", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff", link: "/zapatillas", }, { title: "Ropa", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab", link: "/ropa", }, { title: "Accesorios", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f", link: "/accesorios", }, ].map((c, i) => ( <Link key={i} href={c.link}> <div className="relative rounded-3xl overflow-hidden group cursor-pointer"> <img src={c.img} alt={c.title} className="w-full h-80 object-cover group-hover:scale-110 transition duration-500" /> <div className="absolute inset-0 bg-black/40 flex items-center justify-center"> <h4 className="text-3xl font-bold">{c.title}</h4> </div> </div> </Link> ))} </div> </section>
       <section className="py-20 px-6 bg-zinc-950/80">
         <h2 className="text-4xl font-bold text-center mb-12">
           ¿Por qué elegirnos?
@@ -123,6 +123,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <a
+        href="https://wa.me/5491173600891"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition z-50"
+      >
+        💬
+      </a>
     </main>
   );
 }
