@@ -37,7 +37,6 @@ export default function ropa() {
     ADIDAS:[
       "ropa.jpeg",
       "ropa1.jpeg",
-      "ropa2.jpeg",
       "ropa3.jpeg",
       "ropa4.jpeg",
       "ropa5.jpeg",
@@ -45,9 +44,8 @@ export default function ropa() {
       "ropa7.jpeg",
     ],
     OTRAS_MARCAS:[
-        "face1,jpeg" , 
-        "face2.jpeg" ,
-      
+        "face1,jpeg", 
+        "face2.jpeg",
     ],
   };
 
@@ -110,7 +108,7 @@ export default function ropa() {
       </a>
 
       <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
+        <h3 className="text-3xl font-bold mb-6">NIKE</h3>
 
         <div className="grid md:grid-cols-4 gap-4">
           {marcas.NIKE.map((img, i) => (
@@ -125,7 +123,7 @@ export default function ropa() {
       </section>
 
       <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">NIKE</h3>
+        <h3 className="text-3xl font-bold mb-6">ARGENTINA</h3>
 
         <div className="grid md:grid-cols-4 gap-4">
           {marcas.Argentina.map((img, i) => (
@@ -140,7 +138,7 @@ export default function ropa() {
       </section>
 
       <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">DC</h3>
+        <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
 
         <div className="grid md:grid-cols-4 gap-4">
           {marcas.ADIDAS.map((img, i) => (
@@ -155,14 +153,14 @@ export default function ropa() {
       </section>
 
       <section>
-        <h3 className="text-3xl font-bold mb-6">VANS</h3>
+        <h3 className="text-3xl font-bold mb-6">OTRAS MARCAS</h3>
 
         <div className="grid md:grid-cols-4 gap-4">
           {marcas.OTRAS_MARCAS.map((img, i) => (
             <img
               key={i}
               src={img}
-              alt="OTRAS MARCAS"
+              alt="face"
               className="rounded-2xl h-72 w-full object-cover hover:scale-105 transition duration-500 border border-zinc-800"
             />
           ))}

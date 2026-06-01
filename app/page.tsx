@@ -46,10 +46,10 @@ export default function Home() {
 
         <div className="flex flex-wrap justify-center gap-4">
           <Link
-            href="/zapatillas"
+            href="/quienes-somos"
             className="bg-white text-black px-8 py-4 rounded-2xl font-bold"
           >
-            Ver Catálogo
+            ¿Quienes somos?
           </Link>
 
           <a
