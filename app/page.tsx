@@ -76,7 +76,7 @@ export default function Home() {
           NUEVA COLECCIÓN 2026
         </p>
         <img
-          src="/logo.jpg"
+          src="/logo1.jpg"
           alt="logo"
           className="w-32 h-32 rounded-full object-cover border border-white/20 mx-auto mb-6"
         />
