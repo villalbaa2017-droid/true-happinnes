@@ -12,9 +12,11 @@ type Producto = {
 
 export default function Zapatillas() {
   const [carrito, setCarrito] = useState<Producto[]>([]);
+  const [open, setOpen] = useState(false);
 
   const agregarAlCarrito = (producto: Producto) => {
     setCarrito((prev) => [...prev, producto]);
+    setOpen(true);
   };
 
   const eliminarDelCarrito = (index: number) => {
@@ -110,9 +112,7 @@ export default function Zapatillas() {
             <div className="p-4">
               <h4 className="font-bold text-lg">{producto.nombre}</h4>
 
-              <p className="text-zinc-400">
-                Talles: {producto.talle}
-              </p>
+              <p className="text-zinc-400">Talles: {producto.talle}</p>
 
               <p className="text-green-400 text-2xl font-bold mt-2">
                 ${producto.precio.toLocaleString()}
@@ -141,6 +141,8 @@ export default function Zapatillas() {
     </section>
   );
 
+  const totalPrecio = carrito.reduce((acc, p) => acc + p.precio, 0);
+
   return (
     <main
       className="min-h-screen text-white p-6 bg-cover bg-center bg-fixed"
@@ -163,63 +165,76 @@ export default function Zapatillas() {
           Instagram
         </a>
 
-        {/* CARRITO INDICADOR */}
-        <div className="bg-white text-black px-4 py-2 rounded-xl font-bold mt-2">
+        {/* BOTÓN CARRITO */}
+        <button
+          onClick={() => setOpen(true)}
+          className="bg-white text-black px-4 py-2 rounded-xl font-bold mt-2"
+        >
           🛒 {carrito.length}
-        </div>
+        </button>
       </div>
 
-      {/* CARRITO */}
-      {carrito.length > 0 && (
-        <div className="mb-10 p-4 bg-zinc-900 rounded-xl border border-white/10">
-          <h2 className="text-xl font-bold mb-4">Carrito</h2>
+      {/* CARRITO LATERAL (SHOPIFY STYLE) */}
+      {open && (
+        <div className="fixed top-0 right-0 w-full md:w-[400px] h-full bg-black text-white shadow-2xl z-50 p-6 flex flex-col">
+          {/* HEADER */}
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-xl font-bold">Tu carrito</h2>
 
-          {carrito.map((item, i) => (
-            <div key={i} className="flex justify-between mb-2">
-              <span>
-                {item.nombre} - ${item.precio.toLocaleString()}
-              </span>
+            <button
+              onClick={() => setOpen(false)}
+              className="text-red-400 text-xl"
+            >
+              ✕
+            </button>
+          </div>
 
-              <button
-                onClick={() => eliminarDelCarrito(i)}
-                className="text-red-400"
+          {/* ITEMS */}
+          <div className="flex-1 overflow-auto space-y-4">
+            {carrito.length === 0 && (
+              <p className="text-zinc-400">El carrito está vacío</p>
+            )}
+
+            {carrito.map((item, i) => (
+              <div
+                key={i}
+                className="flex justify-between border-b border-zinc-800 pb-2"
               >
-                X
-              </button>
-            </div>
-          ))}
+                <div>
+                  <p className="font-bold">{item.nombre}</p>
+                  <p className="text-green-400">
+                    ${item.precio.toLocaleString()}
+                  </p>
+                </div>
 
-          <hr className="my-3 border-white/10" />
+                <button
+                  onClick={() => eliminarDelCarrito(i)}
+                  className="text-red-400"
+                >
+                  X
+                </button>
+              </div>
+            ))}
+          </div>
 
-          <p className="font-bold text-green-400">
-            Total: ${total.toLocaleString()}
-          </p>
+          {/* TOTAL */}
+          <div className="border-t border-zinc-800 pt-4 mt-4">
+            <p className="text-lg font-bold mb-3">
+              Total: ${totalPrecio.toLocaleString()}
+            </p>
+
+            <a
+              href={`https://wa.me/5491173600891?text=Hola quiero comprar:%0A${carrito
+                .map((p) => `- ${p.nombre} $${p.precio}`)
+                .join("%0A")}%0A%0ATotal: $${totalPrecio}`}
+              target="_blank"
+              className="block bg-green-500 text-black text-center py-3 rounded-xl font-bold"
+            >
+              Finalizar compra
+            </a>
+          </div>
         </div>
       )}
-
-      {/* TÍTULO */}
-      <h2 className="text-5xl font-bold text-center mb-4">
-        Zapatillas
-      </h2>
-
-      <p className="text-center text-zinc-300 max-w-2xl mx-auto mb-10">
-        Modelos disponibles por encargo. Consultanos stock, talles y precios por WhatsApp.
-      </p>
-
-      {/* BENEFICIOS */}
-      <div className="grid md:grid-cols-3 gap-4 mb-12">
-        <div className="bg-black/40 border border-zinc-700 p-4 rounded-xl text-center">
-          🚚 Envíos a todo el país
-        </div>
-
-        <div className="bg-black/40 border border-zinc-700 p-4 rounded-xl text-center">
-          💳 Transferencia con descuento
-        </div>
-
-        <div className="bg-black/40 border border-zinc-700 p-4 rounded-xl text-center">
-          📱 Atención personalizada
-        </div>
-      </div>
 
       {/* SECCIONES */}
       {renderSection("ADIDAS", adidas)}
