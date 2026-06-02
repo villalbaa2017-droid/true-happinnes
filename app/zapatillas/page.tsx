@@ -20,9 +20,6 @@ export default function Zapatillas() {
   const [filtro, setFiltro] = useState("TODOS");
   const [productoActivo, setProductoActivo] = useState<Producto | null>(null);
 
-  // 💳 MÉTODO DE PAGO (NUEVO)
-  const [metodoPago, setMetodoPago] = useState("WHATSAPP");
-
   const agregarAlCarrito = (producto: Producto) => {
     setCarrito((prev) => {
       const existe = prev.find((p) => p.nombre === producto.nombre);
@@ -50,46 +47,24 @@ export default function Zapatillas() {
     0
   );
 
-  // 💳 CHECKOUT FINAL
-  const finalizarCompra = () => {
-    const detalle = carrito
-      .map((p) => `- ${p.nombre} x${p.cantidad}`)
-      .join("%0A");
-
-    if (metodoPago === "WHATSAPP") {
-      window.open(
-        `https://wa.me/5491173600891?text=Hola quiero comprar:%0A${detalle}%0A%0ATotal: $${total}`,
-        "_blank"
-      );
-    }
-
-    if (metodoPago === "MERCADOPAGO") {
-      window.open("https://www.mercadopago.com.ar/", "_blank");
-    }
-
-    if (metodoPago === "TRANSFERENCIA") {
-      alert("Alias: true.happiness / Enviar comprobante por WhatsApp");
-    }
-  };
-
-  const adidas = [
-    { img: "ADIDAS.jpeg", nombre: "Adidas Campus", precio: 180000, talle: "39-44", mp: "#" },
-    { img: "ADIDAS1.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "#" },
+  const adidas: Producto[] = [
+    { img: "ADIDAS.jpeg", nombre: "Adidas Campus", precio: 180000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS1.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
   ];
 
-  const nike = [
-    { img: "NIKE1.jpeg", nombre: "Nike Air Max", precio: 250000, talle: "39-44", mp: "#" },
-    { img: "NIKE2.jpeg", nombre: "Nike React", precio: 220000, talle: "39-44", mp: "#" },
+  const nike: Producto[] = [
+    { img: "NIKE1.jpeg", nombre: "Nike Air Max", precio: 250000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "NIKE2.jpeg", nombre: "Nike React", precio: 220000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
   ];
 
-  const dc = [
-    { img: "DC.jpeg", nombre: "DC Shoes", precio: 200000, talle: "39-44", mp: "#" },
-    { img: "DCC.jpeg", nombre: "DC Shoes", precio: 200000, talle: "39-44", mp: "#" },
+  const dc: Producto[] = [
+    { img: "DC.jpeg", nombre: "DC Shoes", precio: 200000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "DCC.jpeg", nombre: "DC Shoes", precio: 200000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
   ];
 
-  const vans = [
-    { img: "VANS1.jpeg", nombre: "VANS Shoes", precio: 180000, talle: "39-44", mp: "#" },
-    { img: "VANS2.jpeg", nombre: "VANS Skater", precio: 160000, talle: "39-44", mp: "#" },
+  const vans: Producto[] = [
+    { img: "VANS1.jpeg", nombre: "VANS Shoes", precio: 180000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "VANS2.jpeg", nombre: "VANS Skater", precio: 160000, talle: "39-44", mp: "https://mpago.la/sebastianvillalba" },
   ];
 
   const catalogo = useMemo(() => {
@@ -116,26 +91,49 @@ export default function Zapatillas() {
       }}
     >
 
-      {/* HEADER */}
-      <div className="flex flex-col items-center gap-4 mb-8">
-        <img src="/logo.jpg" className="w-24 h-24 rounded-full" />
+      {/* ================= HEADER PRO (NUEVO) ================= */}
+      <div className="flex items-center justify-between mb-8 max-w-6xl mx-auto w-full">
 
-        <h1 className="text-4xl font-bold">TRUE HAPPINNES</h1>
+        {/* LOGO + NOMBRE */}
+        <div className="flex items-center gap-3">
+          <img src="/logo.jpg" className="w-14 h-14 rounded-full" />
 
-        <button
-          onClick={() => setOpen(true)}
-          className="bg-white text-black px-4 py-2 rounded-xl font-bold"
+          <h1 className="text-2xl md:text-3xl font-bold">
+            TRUE HAPPINNES
+          </h1>
+        </div>
+
+        {/* BOTONES CENTRO */}
+        <div className="flex items-center gap-4">
+
+          <a
+            href="/"
+            className="text-sm text-zinc-300 hover:text-white transition"
+          >
+            ← Volver al inicio
+          </a>
+
+          <button
+            onClick={() => setOpen(true)}
+            className="bg-white text-black px-4 py-2 rounded-xl font-bold"
+          >
+            🛒 {carrito.length}
+          </button>
+
+        </div>
+
+        {/* INSTAGRAM */}
+        <a
+          href="https://www.instagram.com/true.happinnes_/"
+          target="_blank"
+          className="border border-pink-500 px-4 py-2 rounded-xl hover:bg-pink-500/20 transition"
         >
-          🛒 {carrito.length}
-        </button>
-
-        {/* 🔙 VOLVER */}
-        <a href="/" className="text-sm underline text-zinc-300">
-          ← Volver al inicio
+          Instagram
         </a>
+
       </div>
 
-      {/* FILTROS */}
+      {/* BUSQUEDA */}
       <div className="max-w-4xl mx-auto mb-10">
         <input
           value={busqueda}
@@ -195,27 +193,12 @@ export default function Zapatillas() {
         ))}
       </div>
 
-      {/* 🛒 CARRITO */}
+      {/* CARRITO */}
       {open && (
         <div className="fixed inset-0 bg-black/60 z-50">
           <div className="absolute right-0 top-0 w-[420px] h-full bg-black p-6">
 
             <h2 className="text-xl font-bold mb-4">Carrito</h2>
-
-            {/* MÉTODOS DE PAGO */}
-            <div className="mb-4">
-              <p className="font-bold mb-2">Método de pago</p>
-
-              <select
-                className="w-full p-2 text-black rounded-lg"
-                value={metodoPago}
-                onChange={(e) => setMetodoPago(e.target.value)}
-              >
-                <option value="WHATSAPP">WhatsApp</option>
-                <option value="MERCADOPAGO">MercadoPago</option>
-                <option value="TRANSFERENCIA">Transferencia</option>
-              </select>
-            </div>
 
             {carrito.map((p, i) => (
               <div key={i} className="flex justify-between border-b py-2">
@@ -237,15 +220,8 @@ export default function Zapatillas() {
             </p>
 
             <button
-              onClick={finalizarCompra}
-              className="mt-4 w-full bg-green-500 py-3 rounded-xl font-bold"
-            >
-              Finalizar compra
-            </button>
-
-            <button
               onClick={() => setOpen(false)}
-              className="mt-2 w-full bg-red-500 py-2 rounded-xl"
+              className="mt-4 w-full bg-red-500 py-2 rounded-xl"
             >
               Cerrar
             </button>
@@ -280,6 +256,7 @@ export default function Zapatillas() {
           </div>
         </div>
       )}
+
     </main>
   );
 }
