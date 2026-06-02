@@ -1,70 +1,75 @@
 "use client";
 
 export default function Zapatillas() {
-  const marcas: Record<string, string[]> = {
-    ADIDAS: [
-      "ADIDAS.jpeg",
-      "ADIDAS1.jpeg",
-      "ADIDAS2.jpeg",
-      "ADIDAS3.jpeg",
-      "ADIDAS5.jpeg",
-      "ADIDAS6.jpeg",
-      "ADIDAS7.jpeg",
-      "ADIDAS8.jpeg",
-      "ADIDAS9.jpeg",
-      "ADIDAS10.jpeg",
-      "ADIDAS11.jpeg",
-      "ADIDAS12.jpeg",
-      "ADIDAS13.jpeg",
-    ],
-    NIKE: [
-      "NIKE1.jpeg",
-      "NIKE2.jpeg",
-      "NIKE3.jpeg",
-      "NIKE4.jpeg",
-      "NIKE5.jpeg",
-      "NIKE6.jpeg",
-    ],
-    DC: [
-      "DC.jpeg",
-      "DCC.jpeg",
-      "DCCC.jpeg",
-      "DCCCC.jpeg",
-      "DCCCCC.jpeg",
-      "DCCCCCC.jpeg",
-      "DCCCCCCC.jpeg",
-      "DCCCCCCCC.jpeg",
-    ],
-    VANS: [
-      "VANS1.jpeg",
-      "VANS2.jpeg",
-      "VANS3.jpeg",
-      "VANS4.jpeg",
-      "VANS5.jpeg",
-      "VANS6.jpeg",
-      "VANS7.jpeg",
-      "VANS8.jpeg",
-      "VANS9.jpeg",
-      "VANS10.jpeg",
-      "VANS11.jpeg",
-      "VANS12.jpeg",
-      "VANS13.jpeg",
-      "VANS14.jpeg",
-      "VANS15.jpeg",
-      "VANS16.jpeg",
-      "VANS17.jpeg",
-      "VANS18.jpeg",
-      "VANS19.jpeg",
-      "VANS20.jpeg",
-      "VANS21.jpeg",
-      "VANS22.jpeg",
-      "VANS23.jpeg",
-      "VANS24.jpeg",
-      "VANS25.jpeg",
-      "VANS26.jpeg",
-      "VANS27.jpeg",
-    ],
-  };
+  const adidas = [
+  {
+    img: "ADIDAS.jpeg",
+    nombre: "Adidas Campus",
+    precio: 180000,
+    talle: "39-44",
+    mp: "https://mpago.la/TU_LINK",
+  },
+
+  {
+    img: "ADIDAS1.jpeg",
+    nombre: "Adidas Forum",
+    precio: 195000,
+    talle: "39-44",
+    mp: "https://mpago.la/TU_LINK",
+  },
+];
+      
+     const NIKE = [
+  {
+    img: "NIKE1.jpeg",
+    nombre: "Nike Air Max",
+    precio: 250000,
+    talle: "39-44",
+    mp: "https://mpago.la/TU_LINK",
+  },
+
+  {
+    img: "NIKE2.jpeg",
+    nombre: "Nike React",
+    precio: 220000,
+    talle: "39-44",
+    mp: "https://mpago.la/TU_LINK",
+  },
+];
+      const DC = [
+  {
+    img: "DC.jpeg",
+    nombre: "DC Shoes",
+    precio: 200000,
+    talle: "39-44",
+    mp: "https://mpago.la/TU_LINK",
+  },
+
+  {
+    img: "DCC.jpeg",
+    nombre: "DC Shoes",
+    precio: 200000,
+    talle: "39-44",
+    mp: "https://mpago.la/TU_LINK",
+  },
+];
+      const VANS = [
+  {
+    img: "VANS1.jpeg",
+    nombre: "VANS Shoes",
+    precio: 180000,
+    talle: "39-44",
+    mp: "https://mpago.la/TU_LINK",
+  },
+
+  {
+    img: "VANS2.jpeg",
+    nombre: "VANS Skater",
+    precio: 160000,
+    talle: "39-44",
+    mp: "https://mpago.la/TU_LINK",
+  },
+];
 
   return (
     <main
@@ -125,64 +130,207 @@ export default function Zapatillas() {
       </a>
 
       <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
+  <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
 
-        <div className="grid md:grid-cols-4 gap-4">
-          {marcas.ADIDAS.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt="Adidas"
-              className="rounded-2xl h-72 w-full object-cover hover:scale-105 transition duration-500 border border-zinc-800"
-            />
-          ))}
+  <div className="grid md:grid-cols-4 gap-4">
+    {adidas.map((producto, i) => (
+      <div
+        key={i}
+        className="bg-black/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-white transition"
+      >
+        <img
+          src={producto.img}
+          alt={producto.nombre}
+          className="h-72 w-full object-cover"
+        />
+
+        <div className="p-4">
+          <h4 className="font-bold text-lg">
+            {producto.nombre}
+          </h4>
+
+          <p className="text-zinc-400">
+            Talles: {producto.talle}
+          </p>
+
+          <p className="text-green-400 text-2xl font-bold mt-2">
+            ${producto.precio.toLocaleString()}
+          </p>
+
+          <div className="flex gap-2 mt-4">
+            <a
+              href={`https://wa.me/5491173600891?text=Hola, me interesa ${producto.nombre}`}
+              target="_blank"
+              className="flex-1 bg-green-500 text-center text-black py-2 rounded-lg font-bold"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              href={producto.mp}
+              target="_blank"
+              className="flex-1 bg-sky-500 text-center text-black py-2 rounded-lg font-bold"
+            >
+              Comprar
+            </a>
+          </div>
         </div>
-      </section>
-
+      </div>
+    ))}
+  </div>
+</section>
       <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">NIKE</h3>
+  <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
 
-        <div className="grid md:grid-cols-4 gap-4">
-          {marcas.NIKE.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt="Nike"
-              className="rounded-2xl h-72 w-full object-cover hover:scale-105 transition duration-500 border border-zinc-800"
-            />
-          ))}
+  <div className="grid md:grid-cols-4 gap-4">
+    {NIKE.map((producto, i) => (
+      <div
+        key={i}
+        className="bg-black/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-white transition"
+      >
+        <img
+          src={producto.img}
+          alt={producto.nombre}
+          className="h-72 w-full object-cover"
+        />
+
+        <div className="p-4">
+          <h4 className="font-bold text-lg">
+            {producto.nombre}
+          </h4>
+
+          <p className="text-zinc-400">
+            Talles: {producto.talle}
+          </p>
+
+          <p className="text-green-400 text-2xl font-bold mt-2">
+            ${producto.precio.toLocaleString()}
+          </p>
+
+          <div className="flex gap-2 mt-4">
+            <a
+              href={`https://wa.me/5491173600891?text=Hola, me interesa ${producto.nombre}`}
+              target="_blank"
+              className="flex-1 bg-green-500 text-center text-black py-2 rounded-lg font-bold"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              href={producto.mp}
+              target="_blank"
+              className="flex-1 bg-sky-500 text-center text-black py-2 rounded-lg font-bold"
+            >
+              Comprar
+            </a>
+          </div>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
 
-      <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">DC</h3>
+     <section className="mb-16">
+  <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
 
-        <div className="grid md:grid-cols-4 gap-4">
-          {marcas.DC.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt="DC"
-              className="rounded-2xl h-72 w-full object-cover hover:scale-105 transition duration-500 border border-zinc-800"
-            />
-          ))}
+  <div className="grid md:grid-cols-4 gap-4">
+    {DC.map((producto, i) => (
+      <div
+        key={i}
+        className="bg-black/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-white transition"
+      >
+        <img
+          src={producto.img}
+          alt={producto.nombre}
+          className="h-72 w-full object-cover"
+        />
+
+        <div className="p-4">
+          <h4 className="font-bold text-lg">
+            {producto.nombre}
+          </h4>
+
+          <p className="text-zinc-400">
+            Talles: {producto.talle}
+          </p>
+
+          <p className="text-green-400 text-2xl font-bold mt-2">
+            ${producto.precio.toLocaleString()}
+          </p>
+
+          <div className="flex gap-2 mt-4">
+            <a
+              href={`https://wa.me/5491173600891?text=Hola, me interesa ${producto.nombre}`}
+              target="_blank"
+              className="flex-1 bg-green-500 text-center text-black py-2 rounded-lg font-bold"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              href={producto.mp}
+              target="_blank"
+              className="flex-1 bg-sky-500 text-center text-black py-2 rounded-lg font-bold"
+            >
+              Comprar
+            </a>
+          </div>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
 
-      <section>
-        <h3 className="text-3xl font-bold mb-6">VANS</h3>
+     <section className="mb-16">
+  <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
 
-        <div className="grid md:grid-cols-4 gap-4">
-          {marcas.VANS.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt="Vans"
-              className="rounded-2xl h-72 w-full object-cover hover:scale-105 transition duration-500 border border-zinc-800"
-            />
-          ))}
+  <div className="grid md:grid-cols-4 gap-4">
+    {VANS.map((producto, i) => (
+      <div
+        key={i}
+        className="bg-black/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-white transition"
+      >
+        <img
+          src={producto.img}
+          alt={producto.nombre}
+          className="h-72 w-full object-cover"
+        />
+
+        <div className="p-4">
+          <h4 className="font-bold text-lg">
+            {producto.nombre}
+          </h4>
+
+          <p className="text-zinc-400">
+            Talles: {producto.talle}
+          </p>
+
+          <p className="text-green-400 text-2xl font-bold mt-2">
+            ${producto.precio.toLocaleString()}
+          </p>
+
+          <div className="flex gap-2 mt-4">
+            <a
+              href={`https://wa.me/5491173600891?text=Hola, me interesa ${producto.nombre}`}
+              target="_blank"
+              className="flex-1 bg-green-500 text-center text-black py-2 rounded-lg font-bold"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              href={producto.mp}
+              target="_blank"
+              className="flex-1 bg-sky-500 text-center text-black py-2 rounded-lg font-bold"
+            >
+              Comprar
+            </a>
+          </div>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
 
       <div className="text-center py-12">
         <h3 className="text-2xl font-bold mb-4">
@@ -208,5 +356,5 @@ export default function Zapatillas() {
         💬
       </a>
     </main>
-  );
+  );  
 }
