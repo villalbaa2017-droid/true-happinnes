@@ -218,6 +218,23 @@ export default function Zapatillas() {
             <p className="mt-4 font-bold">
               Total: ${total.toLocaleString()}
             </p>
+<a
+  href={`https://wa.me/5491173600891?text=Hola%20quiero%20comprar:%0A${carrito
+    .map((p) => `- ${p.nombre} x${p.cantidad} $${p.precio}`)
+    .join("%0A")}%0A%0ATotal:%20$${total.toLocaleString()}`}
+  target="_blank"
+  className="mt-4 block w-full bg-green-500 text-black py-3 rounded-xl font-bold text-center"
+>
+  Finalizar compra por WhatsApp
+</a>
+
+<a
+  href="https://link.mercadopago.com.ar/TU_LINK"
+  target="_blank"
+  className="mt-3 block w-full bg-sky-500 text-black py-3 rounded-xl font-bold text-center"
+>
+  Pagar con MercadoPago
+</a>
 
             <button
               onClick={() => setOpen(false)}
