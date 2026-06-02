@@ -1,8 +1,40 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
+  // 🔥 SLIDER PRODUCTOS DESTACADOS
+  const featured = [
+    {
+      name: "Nike Air Force 1",
+      price: 180000,
+      img: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb",
+    },
+    {
+      name: "Adidas Campus",
+      price: 175000,
+      img: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28",
+    },
+    {
+      name: "Jordan 1 Retro",
+      price: 220000,
+      img: "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6",
+    },
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  const next = () => {
+    setIndex((prev) => (prev + 1) % featured.length);
+  };
+
+  const prev = () => {
+    setIndex((prev) =>
+      prev === 0 ? featured.length - 1 : prev - 1
+    );
+  };
+
   return (
     <main
       className="min-h-screen text-white bg-cover bg-center bg-fixed relative"
@@ -77,7 +109,6 @@ export default function Home() {
         </h3>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
           {[
             {
               title: "Zapatillas",
@@ -111,35 +142,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRODUCTOS DESTACADOS (CLAVE TIENDA REAL) */}
+      {/* 🔥 PRODUCTOS DESTACADOS - SLIDER PRO */}
       <section className="px-6 py-20 bg-zinc-950/70">
         <h2 className="text-4xl font-bold text-center mb-12">
           Productos destacados
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto relative">
 
-          {["Nike Air Force", "Adidas Campus", "Jordan 1"].map((p, i) => (
-            <div
-              key={i}
-              className="bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:scale-105 transition"
-            >
-              <img
-                src={`https://source.unsplash.com/600x600/?sneakers,shoe,${i}`}
-                className="w-full h-72 object-cover"
-                alt={p}
-              />
+          <div className="bg-black/40 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-md">
 
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-bold mb-2">{p}</h3>
-                <p className="text-white/60 mb-4">$180.000</p>
+            <img
+              src={featured[index].img}
+              className="w-full h-[420px] object-cover transition duration-500"
+            />
 
-                <button className="bg-white text-black px-6 py-2 rounded-xl font-bold w-full hover:scale-105 transition">
-                  Agregar al carrito
-                </button>
-              </div>
+            <div className="p-6 text-center">
+              <h3 className="text-2xl font-bold">
+                {featured[index].name}
+              </h3>
+
+              <p className="text-white/60 mb-4">
+                ${featured[index].price.toLocaleString()}
+              </p>
+
+              <button className="bg-white text-black px-6 py-2 rounded-xl font-bold w-full hover:scale-105 transition">
+                Agregar al carrito
+              </button>
             </div>
-          ))}
+          </div>
+
+          {/* FLECHAS */}
+          <button
+            onClick={prev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 px-3 py-2 rounded-full"
+          >
+            ←
+          </button>
+
+          <button
+            onClick={next}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 px-3 py-2 rounded-full"
+          >
+            →
+          </button>
+
+          {/* INDICADORES */}
+          <div className="flex justify-center gap-2 mt-4">
+            {featured.map((_, i) => (
+              <div
+                key={i}
+                className={`w-2 h-2 rounded-full ${
+                  i === index ? "bg-white" : "bg-white/30"
+                }`}
+              />
+            ))}
+          </div>
+
         </div>
       </section>
 
