@@ -16,10 +16,12 @@ export default function Zapatillas() {
   const [carrito, setCarrito] = useState<CarritoItem[]>([]);
   const [open, setOpen] = useState(false);
 
-  // 🧠 AMAZON LAYER STATE (NUEVO)
   const [busqueda, setBusqueda] = useState("");
   const [filtro, setFiltro] = useState("TODOS");
   const [productoActivo, setProductoActivo] = useState<Producto | null>(null);
+
+  // 💳 MÉTODO DE PAGO (NUEVO)
+  const [metodoPago, setMetodoPago] = useState("WHATSAPP");
 
   const agregarAlCarrito = (producto: Producto) => {
     setCarrito((prev) => {
@@ -48,28 +50,48 @@ export default function Zapatillas() {
     0
   );
 
-  // 🔥 TU DATA ORIGINAL (NO TOCADA)
-  const adidas: Producto[] = [
-    { img: "ADIDAS.jpeg", nombre: "Adidas Campus", precio: 180000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS1.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+  // 💳 CHECKOUT FINAL
+  const finalizarCompra = () => {
+    const detalle = carrito
+      .map((p) => `- ${p.nombre} x${p.cantidad}`)
+      .join("%0A");
+
+    if (metodoPago === "WHATSAPP") {
+      window.open(
+        `https://wa.me/5491173600891?text=Hola quiero comprar:%0A${detalle}%0A%0ATotal: $${total}`,
+        "_blank"
+      );
+    }
+
+    if (metodoPago === "MERCADOPAGO") {
+      window.open("https://www.mercadopago.com.ar/", "_blank");
+    }
+
+    if (metodoPago === "TRANSFERENCIA") {
+      alert("Alias: true.happiness / Enviar comprobante por WhatsApp");
+    }
+  };
+
+  const adidas = [
+    { img: "ADIDAS.jpeg", nombre: "Adidas Campus", precio: 180000, talle: "39-44", mp: "#" },
+    { img: "ADIDAS1.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "#" },
   ];
 
-  const nike: Producto[] = [
-    { img: "NIKE1.jpeg", nombre: "Nike Air Max", precio: 250000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "NIKE2.jpeg", nombre: "Nike React", precio: 220000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+  const nike = [
+    { img: "NIKE1.jpeg", nombre: "Nike Air Max", precio: 250000, talle: "39-44", mp: "#" },
+    { img: "NIKE2.jpeg", nombre: "Nike React", precio: 220000, talle: "39-44", mp: "#" },
   ];
 
-  const dc: Producto[] = [
-    { img: "DC.jpeg", nombre: "DC Shoes", precio: 200000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "DCC.jpeg", nombre: "DC Shoes", precio: 200000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+  const dc = [
+    { img: "DC.jpeg", nombre: "DC Shoes", precio: 200000, talle: "39-44", mp: "#" },
+    { img: "DCC.jpeg", nombre: "DC Shoes", precio: 200000, talle: "39-44", mp: "#" },
   ];
 
-  const vans: Producto[] = [
-    { img: "VANS1.jpeg", nombre: "VANS Shoes", precio: 180000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "VANS2.jpeg", nombre: "VANS Skater", precio: 160000, talle: "39-44", mp: "https://mpago.la/sebastianvillalba" },
+  const vans = [
+    { img: "VANS1.jpeg", nombre: "VANS Shoes", precio: 180000, talle: "39-44", mp: "#" },
+    { img: "VANS2.jpeg", nombre: "VANS Skater", precio: 160000, talle: "39-44", mp: "#" },
   ];
 
-  // 🧠 UNIFICADO (AMAZON STYLE)
   const catalogo = useMemo(() => {
     const all = [
       ...adidas.map(p => ({ ...p, marca: "ADIDAS" })),
@@ -79,13 +101,10 @@ export default function Zapatillas() {
     ];
 
     return all.filter((p) => {
-      const matchBusqueda =
-        p.nombre.toLowerCase().includes(busqueda.toLowerCase());
-
-      const matchFiltro =
-        filtro === "TODOS" || p.marca === filtro;
-
-      return matchBusqueda && matchFiltro;
+      return (
+        p.nombre.toLowerCase().includes(busqueda.toLowerCase()) &&
+        (filtro === "TODOS" || p.marca === filtro)
+      );
     });
   }, [busqueda, filtro]);
 
@@ -109,9 +128,14 @@ export default function Zapatillas() {
         >
           🛒 {carrito.length}
         </button>
+
+        {/* 🔙 VOLVER */}
+        <a href="/" className="text-sm underline text-zinc-300">
+          ← Volver al inicio
+        </a>
       </div>
 
-      {/* 🧠 AMAZON BAR */}
+      {/* FILTROS */}
       <div className="max-w-4xl mx-auto mb-10">
         <input
           value={busqueda}
@@ -135,10 +159,10 @@ export default function Zapatillas() {
         </div>
       </div>
 
-      {/* 🧠 PRODUCTOS AMAZON STYLE */}
+      {/* PRODUCTOS */}
       <div className="grid md:grid-cols-4 gap-4">
         {catalogo.map((p, i) => (
-          <div key={i} className="bg-black/50 rounded-2xl border border-zinc-800 overflow-hidden">
+          <div key={i} className="bg-black/50 rounded-2xl overflow-hidden">
 
             <img src={p.img} className="h-72 w-full object-cover" />
 
@@ -171,15 +195,30 @@ export default function Zapatillas() {
         ))}
       </div>
 
-      {/* 🛒 CARRITO (NO TOCADO, SOLO SIMPLIFICADO VISUALMENTE) */}
+      {/* 🛒 CARRITO */}
       {open && (
         <div className="fixed inset-0 bg-black/60 z-50">
           <div className="absolute right-0 top-0 w-[420px] h-full bg-black p-6">
 
             <h2 className="text-xl font-bold mb-4">Carrito</h2>
 
+            {/* MÉTODOS DE PAGO */}
+            <div className="mb-4">
+              <p className="font-bold mb-2">Método de pago</p>
+
+              <select
+                className="w-full p-2 text-black rounded-lg"
+                value={metodoPago}
+                onChange={(e) => setMetodoPago(e.target.value)}
+              >
+                <option value="WHATSAPP">WhatsApp</option>
+                <option value="MERCADOPAGO">MercadoPago</option>
+                <option value="TRANSFERENCIA">Transferencia</option>
+              </select>
+            </div>
+
             {carrito.map((p, i) => (
-              <div key={i} className="flex justify-between border-b border-zinc-800 py-2">
+              <div key={i} className="flex justify-between border-b py-2">
                 <div>
                   <p>{p.nombre}</p>
                   <p className="text-green-400">
@@ -198,20 +237,28 @@ export default function Zapatillas() {
             </p>
 
             <button
+              onClick={finalizarCompra}
+              className="mt-4 w-full bg-green-500 py-3 rounded-xl font-bold"
+            >
+              Finalizar compra
+            </button>
+
+            <button
               onClick={() => setOpen(false)}
-              className="mt-4 w-full bg-red-500 py-2 rounded-xl"
+              className="mt-2 w-full bg-red-500 py-2 rounded-xl"
             >
               Cerrar
             </button>
+
           </div>
         </div>
       )}
 
-      {/* 🧠 QUICK VIEW AMAZON */}
+      {/* QUICK VIEW */}
       {productoActivo && (
         <div
           onClick={() => setProductoActivo(null)}
-          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black/70 flex items-center justify-center"
         >
           <div className="bg-black p-6 rounded-xl w-[400px]">
             <img src={productoActivo.img} className="w-full h-60 object-cover rounded-xl" />
