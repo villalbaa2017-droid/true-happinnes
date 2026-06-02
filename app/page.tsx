@@ -7,19 +7,19 @@ export default function Home() {
   // 🔥 SLIDER PRODUCTOS DESTACADOS
   const featured = [
     {
-      name: "Nike Air Force 1",
-      price: 180000,
-      img: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb",
+      name: "True Happiness",
+      price: 1,
+      img: "logo.jpg",
     },
     {
       name: "Adidas Campus",
       price: 175000,
-      img: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28",
+      img: "ADIDAS.jpeg",
     },
     {
       name: "Jordan 1 Retro",
       price: 220000,
-      img: "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6",
+      img: "DC.jpeg",
     },
   ];
 
@@ -167,7 +167,7 @@ export default function Home() {
               </p>
 
               <button className="bg-white text-black px-6 py-2 rounded-xl font-bold w-full hover:scale-105 transition">
-                Agregar al carrito
+                Producto destacado
               </button>
             </div>
           </div>
