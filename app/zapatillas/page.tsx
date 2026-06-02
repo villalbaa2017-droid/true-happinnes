@@ -67,7 +67,7 @@ export default function Zapatillas() {
     nombre: "VANS Skater",
     precio: 160000,
     talle: "39-44",
-    mp: "https://mpago.la/TU_LINK",
+    mp: "https://link.mercadopago.com.ar/sebastianvillalba",
   },
 ];
 
