@@ -70,6 +70,69 @@ export default function Home() {
         </div>
       </nav>
 
+      {/* 🔥 PRODUCTOS DESTACADOS - SLIDER PRO */}
+      <section className="px-6 py-20 bg-zinc-950/70">
+        <h2 className="text-4xl font-bold text-center mb-12">
+          Productos destacados
+        </h2>
+
+        <div className="max-w-4xl mx-auto relative">
+
+          <div className="bg-black/40 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-md">
+
+            <img
+              src={featured[index].img}
+              className="w-full h-[420px] object-cover transition duration-500"
+            />
+
+            <div className="p-6 text-center">
+              <h3 className="text-2xl font-bold">
+                {featured[index].name}
+              </h3>
+
+              <p className="text-white/60 mb-4">
+                ${featured[index].price.toLocaleString()}
+              </p>
+              <a
+                href="/zapatillas"
+                target="_blank"
+                className="bg-green-500 text-black px-6 py-2 rounded-xl font-bold w-full hover:scale-105 transition"
+              >
+                Ver más
+              </a>
+            </div>
+          </div>
+
+          {/* FLECHAS */}
+          <button
+            onClick={prev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 px-3 py-2 rounded-full"
+          >
+            ←
+          </button>
+
+          <button
+            onClick={next}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 px-3 py-2 rounded-full"
+          >
+            →
+          </button>
+
+          {/* INDICADORES */}
+          <div className="flex justify-center gap-2 mt-4">
+            {featured.map((_, i) => (
+              <div
+                key={i}
+                className={`w-2 h-2 rounded-full ${
+                  i === index ? "bg-white" : "bg-white/30"
+                }`}
+              />
+            ))}
+          </div>
+
+        </div>
+      </section>
+
       {/* HERO */}
       <section className="text-center py-28 px-6">
         <p className="text-sm tracking-[0.4em] text-white/60 mb-4">
@@ -143,68 +206,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 🔥 PRODUCTOS DESTACADOS - SLIDER PRO */}
-      <section className="px-6 py-20 bg-zinc-950/70">
-        <h2 className="text-4xl font-bold text-center mb-12">
-          Productos destacados
-        </h2>
-
-        <div className="max-w-4xl mx-auto relative">
-
-          <div className="bg-black/40 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-md">
-
-            <img
-              src={featured[index].img}
-              className="w-full h-[420px] object-cover transition duration-500"
-            />
-
-            <div className="p-6 text-center">
-              <h3 className="text-2xl font-bold">
-                {featured[index].name}
-              </h3>
-
-              <p className="text-white/60 mb-4">
-                ${featured[index].price.toLocaleString()}
-              </p>
-              <a
-                href="/zapatillas"
-                target="_blank"
-                className="bg-green-500 text-black px-6 py-2 rounded-xl font-bold w-full hover:scale-105 transition"
-              >
-                Ver más
-              </a>
-            </div>
-          </div>
-
-          {/* FLECHAS */}
-          <button
-            onClick={prev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 px-3 py-2 rounded-full"
-          >
-            ←
-          </button>
-
-          <button
-            onClick={next}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 px-3 py-2 rounded-full"
-          >
-            →
-          </button>
-
-          {/* INDICADORES */}
-          <div className="flex justify-center gap-2 mt-4">
-            {featured.map((_, i) => (
-              <div
-                key={i}
-                className={`w-2 h-2 rounded-full ${
-                  i === index ? "bg-white" : "bg-white/30"
-                }`}
-              />
-            ))}
-          </div>
-
-        </div>
-      </section>
+      
 
       {/* POR QUÉ ELEGIRNOS */}
       <section className="py-20 px-6">
