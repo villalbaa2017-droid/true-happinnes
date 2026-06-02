@@ -3,7 +3,7 @@
 export default function accesorios() {
   const marcas: Record<string, string[]> = {
     BOXER: [
-      "BOXER1.jpeg",
+      "BOXER.jpeg",
       "BOXER2.jpeg",
       "BOXER3.jpeg",
     ],
@@ -17,12 +17,12 @@ export default function accesorios() {
       "MEDIAS7.jpeg",
     ],
     Gorras:[
-      "Proximamente",
+      "Proximamente!.jpeg",
       
     ],
     
     OTROS:[
-        "proximamente",
+        "Proximamente!.jpeg",
       
     ],
   };
