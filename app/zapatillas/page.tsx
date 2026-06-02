@@ -92,14 +92,14 @@ export default function Zapatillas() {
   ];
 
   const renderSection = (title: string, data: Producto[]) => (
-    <section className="mb-20">
-      <h3 className="text-3xl font-bold mb-8 text-center">{title}</h3>
+    <section className="mb-16">
+      <h3 className="text-3xl font-bold mb-6">{title}</h3>
 
-      <div className="grid md:grid-cols-4 gap-6">
+      <div className="grid md:grid-cols-4 gap-4">
         {data.map((producto, i) => (
           <div
             key={i}
-            className="bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-white/40 transition"
+            className="bg-black/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-white transition"
           >
             <img
               src={producto.img}
@@ -110,7 +110,7 @@ export default function Zapatillas() {
             <div className="p-4">
               <h4 className="font-bold text-lg">{producto.nombre}</h4>
 
-              <p className="text-zinc-400 text-sm">
+              <p className="text-zinc-400">
                 Talles: {producto.talle}
               </p>
 
@@ -142,18 +142,29 @@ export default function Zapatillas() {
   );
 
   return (
-    <main className="min-h-screen text-white p-6 bg-cover bg-center bg-fixed"
+    <main
+      className="min-h-screen text-white p-6 bg-cover bg-center bg-fixed"
       style={{
         backgroundImage:
           "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('/fondo.jpg')",
       }}
     >
-
       {/* HEADER */}
-      <div className="flex justify-between items-center mb-10">
-        <h1 className="text-3xl font-bold">Zapatillas</h1>
+      <div className="flex flex-col items-center gap-4 mb-10">
+        <img src="/logo.jpg" alt="logo" className="w-24 h-24 rounded-full" />
 
-        <div className="bg-white text-black px-4 py-2 rounded-xl font-bold">
+        <h1 className="text-4xl font-bold">TRUE HAPPINNES</h1>
+
+        <a
+          href="https://www.instagram.com/true.happinnes_/"
+          target="_blank"
+          className="border border-pink-500 px-4 py-2 rounded-xl"
+        >
+          Instagram
+        </a>
+
+        {/* CARRITO INDICADOR */}
+        <div className="bg-white text-black px-4 py-2 rounded-xl font-bold mt-2">
           🛒 {carrito.length}
         </div>
       </div>
@@ -186,12 +197,44 @@ export default function Zapatillas() {
         </div>
       )}
 
-      {/* PRODUCTOS */}
+      {/* TÍTULO */}
+      <h2 className="text-5xl font-bold text-center mb-4">
+        Zapatillas
+      </h2>
+
+      <p className="text-center text-zinc-300 max-w-2xl mx-auto mb-10">
+        Modelos disponibles por encargo. Consultanos stock, talles y precios por WhatsApp.
+      </p>
+
+      {/* BENEFICIOS */}
+      <div className="grid md:grid-cols-3 gap-4 mb-12">
+        <div className="bg-black/40 border border-zinc-700 p-4 rounded-xl text-center">
+          🚚 Envíos a todo el país
+        </div>
+
+        <div className="bg-black/40 border border-zinc-700 p-4 rounded-xl text-center">
+          💳 Transferencia con descuento
+        </div>
+
+        <div className="bg-black/40 border border-zinc-700 p-4 rounded-xl text-center">
+          📱 Atención personalizada
+        </div>
+      </div>
+
+      {/* SECCIONES */}
       {renderSection("ADIDAS", adidas)}
       {renderSection("NIKE", NIKE)}
       {renderSection("DC", DC)}
       {renderSection("VANS", VANS)}
 
+      {/* WHATSAPP */}
+      <a
+        href="https://wa.me/5491173600891"
+        target="_blank"
+        className="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition z-50"
+      >
+        💬
+      </a>
     </main>
   );
 }
