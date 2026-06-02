@@ -180,7 +180,7 @@ export default function Zapatillas() {
   </div>
 </section>
       <section className="mb-16">
-  <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
+  <h3 className="text-3xl font-bold mb-6">Nike</h3>
 
   <div className="grid md:grid-cols-4 gap-4">
     {NIKE.map((producto, i) => (
@@ -231,7 +231,7 @@ export default function Zapatillas() {
 </section>
 
      <section className="mb-16">
-  <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
+  <h3 className="text-3xl font-bold mb-6">DC</h3>
 
   <div className="grid md:grid-cols-4 gap-4">
     {DC.map((producto, i) => (
@@ -282,7 +282,7 @@ export default function Zapatillas() {
 </section>
 
      <section className="mb-16">
-  <h3 className="text-3xl font-bold mb-6">ADIDAS</h3>
+  <h3 className="text-3xl font-bold mb-6">VANS</h3>
 
   <div className="grid md:grid-cols-4 gap-4">
     {VANS.map((producto, i) => (
