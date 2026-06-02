@@ -49,7 +49,18 @@ export default function Zapatillas() {
 
   const adidas: Producto[] = [
     { img: "ADIDAS.jpeg", nombre: "Adidas Campus", precio: 180000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS1.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS1.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },  
+    { img: "ADIDAS2.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS3.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS10.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS5.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS6.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS7.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS8.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS9.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS11.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS12.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS13.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
   ];
 
   const nike: Producto[] = [
