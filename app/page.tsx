@@ -171,11 +171,11 @@ export default function Home() {
                 ${featured[index].price.toLocaleString()}
               </p>
               <a
-                href="https://wa.me/5491173600891"
+                href="/zapatillas"
                 target="_blank"
                 className="bg-green-500 text-black px-6 py-2 rounded-xl font-bold w-full hover:scale-105 transition"
               >
-                enviar consulta
+                Ver más
               </a>
             </div>
           </div>
