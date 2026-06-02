@@ -2,14 +2,15 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { text } from "stream/consumers";
 
 export default function Home() {
   // 🔥 SLIDER PRODUCTOS DESTACADOS
   const featured = [
     {
       name: "True Happiness",
-      price: 1,
-      img: "logo.jpg",
+      text: "Tu destino para streetwear premium. Sneakers, ropa urbana y accesorios seleccionados para destacar tu estilo.",
+      img: "logo1.jpg",
     },
     {
       name: "Adidas Campus",
@@ -165,10 +166,13 @@ export default function Home() {
               <p className="text-white/60 mb-4">
                 ${featured[index].price.toLocaleString()}
               </p>
-
-              <button className="bg-white text-black px-6 py-2 rounded-xl font-bold w-full hover:scale-105 transition">
-                Producto destacado
-              </button>
+              <a
+                href="https://wa.me/5491173600891"
+                target="_blank"
+                className="bg-green-500 text-black px-6 py-2 rounded-xl font-bold w-full hover:scale-105 transition"
+              >
+                enviar consulta
+              </a>
             </div>
           </div>
 
