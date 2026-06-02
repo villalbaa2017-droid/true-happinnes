@@ -8,19 +8,21 @@ export default function Home() {
       className="min-h-screen text-white bg-cover bg-center bg-fixed relative"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('/fondo.jpg')",
+          "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('/fondo.jpg')",
       }}
     >
-      <nav className="sticky top-0 z-50 backdrop-blur-lg bg-black/70 border-b border-zinc-800">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      {/* NAVBAR */}
+      <nav className="sticky top-0 z-50 backdrop-blur-xl bg-black/60 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
           <div className="flex items-center gap-3">
             <img
               src="/logo.jpg"
               alt="logo"
-              className="w-16 h-16 rounded-full object-cover"
+              className="w-14 h-14 rounded-full object-cover border border-white/20"
             />
 
-            <h1 className="text-2xl md:text-3xl font-bold tracking-widest">
+            <h1 className="text-xl md:text-2xl font-bold tracking-[0.35em]">
               TRUE HAPPINESS
             </h1>
           </div>
@@ -28,110 +30,178 @@ export default function Home() {
           <a
             href="https://www.instagram.com/true.happiness_1/"
             target="_blank"
-            className="border border-pink-500 px-4 py-2 rounded-xl hover:bg-pink-900/30 transition"
+            className="px-5 py-2 rounded-full border border-pink-500 text-sm hover:bg-pink-500/20 transition"
           >
             Instagram
           </a>
         </div>
       </nav>
 
-      <section className="text-center py-24 px-6">
-        <h2 className="text-5xl md:text-7xl font-extrabold mb-6">
-          STREETWEAR PREMIUM
+      {/* HERO */}
+      <section className="text-center py-28 px-6">
+        <p className="text-sm tracking-[0.4em] text-white/60 mb-4">
+          NUEVA COLECCIÓN 2026
+        </p>
+
+        <h2 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+          STREETWEAR <br />
+          <span className="text-pink-400">PREMIUM</span>
         </h2>
 
-        <p className="text-zinc-300 max-w-3xl mx-auto mb-8 text-lg">
+        <p className="text-zinc-300 max-w-3xl mx-auto mb-10 text-lg">
           Sneakers, ropa urbana y accesorios seleccionados para destacar tu estilo.
         </p>
 
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="/quienes-somos"
-            className="bg-white text-black px-8 py-4 rounded-2xl font-bold"
+            className="bg-white text-black px-8 py-4 rounded-2xl font-bold hover:scale-105 transition"
           >
-            ¿Quienes somos?
+            ¿Quiénes somos?
           </Link>
 
           <a
             href="https://wa.me/5491173600891"
             target="_blank"
-            className="bg-green-500 text-black px-8 py-4 rounded-2xl font-bold"
+            className="bg-green-500 text-black px-8 py-4 rounded-2xl font-bold hover:scale-105 transition"
           >
             Consultar por WhatsApp
           </a>
         </div>
       </section>
-<section className="px-6 py-16"> <h3 className="text-4xl font-bold text-center mb-12">Categorías</h3> <div className="grid md:grid-cols-3 gap-8"> {[ { title: "Zapatillas", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff", link: "/zapatillas", }, { title: "Ropa", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab", link: "/ropa", }, { title: "Accesorios", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f", link: "/accesorios", }, ].map((c, i) => ( <Link key={i} href={c.link}> <div className="relative rounded-3xl overflow-hidden group cursor-pointer"> <img src={c.img} alt={c.title} className="w-full h-80 object-cover group-hover:scale-110 transition duration-500" /> <div className="absolute inset-0 bg-black/40 flex items-center justify-center"> <h4 className="text-3xl font-bold">{c.title}</h4> </div> </div> </Link> ))} </div> </section>
-      <section className="py-20 px-6 bg-zinc-950/80">
+
+      {/* CATEGORÍAS */}
+      <section className="px-6 py-20">
+        <h3 className="text-4xl font-bold text-center mb-12">
+          Categorías
+        </h3>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+          {[
+            {
+              title: "Zapatillas",
+              img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+              link: "/zapatillas",
+            },
+            {
+              title: "Ropa",
+              img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+              link: "/ropa",
+            },
+            {
+              title: "Accesorios",
+              img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
+              link: "/accesorios",
+            },
+          ].map((c, i) => (
+            <Link key={i} href={c.link}>
+              <div className="relative rounded-3xl overflow-hidden group cursor-pointer border border-white/10">
+                <img
+                  src={c.img}
+                  alt={c.title}
+                  className="w-full h-80 object-cover group-hover:scale-110 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                  <h4 className="text-3xl font-bold">{c.title}</h4>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* PRODUCTOS DESTACADOS (CLAVE TIENDA REAL) */}
+      <section className="px-6 py-20 bg-zinc-950/70">
+        <h2 className="text-4xl font-bold text-center mb-12">
+          Productos destacados
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+          {["Nike Air Force", "Adidas Campus", "Jordan 1"].map((p, i) => (
+            <div
+              key={i}
+              className="bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:scale-105 transition"
+            >
+              <img
+                src={`https://source.unsplash.com/600x600/?sneakers,shoe,${i}`}
+                className="w-full h-72 object-cover"
+                alt={p}
+              />
+
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-bold mb-2">{p}</h3>
+                <p className="text-white/60 mb-4">$180.000</p>
+
+                <button className="bg-white text-black px-6 py-2 rounded-xl font-bold w-full hover:scale-105 transition">
+                  Agregar al carrito
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* POR QUÉ ELEGIRNOS */}
+      <section className="py-20 px-6">
         <h2 className="text-4xl font-bold text-center mb-12">
           ¿Por qué elegirnos?
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          <div className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+          <div className="bg-black/40 p-8 rounded-2xl border border-white/10 text-center">
             🚚 Envíos a todo el país
           </div>
 
-          <div className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+          <div className="bg-black/40 p-8 rounded-2xl border border-white/10 text-center">
             🔒 Compra segura
           </div>
 
-          <div className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+          <div className="bg-black/40 p-8 rounded-2xl border border-white/10 text-center">
             ⭐ Calidad premium
           </div>
         </div>
       </section>
 
-      {/* DEJÁ TU SECCIÓN DE CATEGORÍAS EXACTAMENTE COMO ESTÁ */}
-
-      <section className="px-6 py-20">
+      {/* CÓMO COMPRAR */}
+      <section className="py-20 px-6 bg-black/40">
         <h2 className="text-4xl font-bold text-center mb-12">
           ¿Cómo realizo mi pedido?
         </h2>
 
         <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <div className="bg-black/40 backdrop-blur-sm p-6 rounded-2xl border border-zinc-700">
-            <div className="text-4xl mb-4">📸</div>
-            <h3 className="font-bold mb-2">1. Elegí tu producto</h3>
-            <p className="text-zinc-300">
-              Mirá nuestro catálogo y seleccioná el modelo que más te guste.
-            </p>
+          <div className="p-6 rounded-2xl border border-white/10 bg-black/30">
+            📸 Elegí tu producto
           </div>
 
-          <div className="bg-black/40 backdrop-blur-sm p-6 rounded-2xl border border-zinc-700">
-            <div className="text-4xl mb-4">💬</div>
-            <h3 className="font-bold mb-2">2. Contactanos</h3>
-            <p className="text-zinc-300">
-              Enviános una captura por WhatsApp o Instagram.
-            </p>
+          <div className="p-6 rounded-2xl border border-white/10 bg-black/30">
+            💬 Contactanos
           </div>
 
-          <div className="bg-black/40 backdrop-blur-sm p-6 rounded-2xl border border-zinc-700">
-            <div className="text-4xl mb-4">💳</div>
-            <h3 className="font-bold mb-2">3. Confirmá tu pago</h3>
-            <p className="text-zinc-300">
-              Te pasamos los datos y confirmamos tu pedido.
-            </p>
+          <div className="p-6 rounded-2xl border border-white/10 bg-black/30">
+            💳 Pagá tu pedido
           </div>
 
-          <div className="bg-black/40 backdrop-blur-sm p-6 rounded-2xl border border-zinc-700">
-            <div className="text-4xl mb-4">🚚</div>
-            <h3 className="font-bold mb-2">4. Recibí tu compra</h3>
-            <p className="text-zinc-300">
-              Preparamos el envío y te compartimos el seguimiento.
-            </p>
+          <div className="p-6 rounded-2xl border border-white/10 bg-black/30">
+            🚚 Recibí tu compra
           </div>
         </div>
       </section>
 
+      {/* WHATSAPP FLOAT */}
       <a
         href="https://wa.me/5491173600891"
         target="_blank"
-        rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition z-50"
       >
         💬
       </a>
+
+      {/* FOOTER */}
+      <footer className="text-center py-10 text-white/50 text-sm">
+        © {new Date().getFullYear()} True Happiness - Todos los derechos reservados
+      </footer>
     </main>
   );
 }
