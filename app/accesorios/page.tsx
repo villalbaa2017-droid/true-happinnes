@@ -2,24 +2,27 @@
 
 export default function accesorios() {
   const marcas: Record<string, string[]> = {
-    Calzones: [
-      "calzones1.jpeg",
-      "calzones2.jpeg",
-      "calzones3.jpeg",
+    BOXER: [
+      "BOXER1.jpeg",
+      "BOXER2.jpeg",
+      "BOXER3.jpeg",
     ],
     Medias: [
-      "medias1.jpeg",
-      "medias2.jpeg",
-      "medias3.jpeg",
+      "MEDIAS1.jpeg",
+      "MEDIAS2.jpeg",
+      "MEDIAS3.jpeg",
+      "MEDIAS4.jpeg",
+      "MEDIAS5.jpeg",
+      "MEDIAS6.jpeg",
+      "MEDIAS7.jpeg",
     ],
     Gorras:[
-      "gorras1.jpeg",
-      "gorras2.jpeg",
-      "gorras3.jpeg",
+      "Proximamente",
+      
     ],
+    
     OTROS:[
-        "otros1.jpeg" , 
-        "otros2.jpeg" ,
+        "proximamente",
       
     ],
   };
@@ -83,14 +86,14 @@ export default function accesorios() {
       </a>
 
       <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">Calzones</h3>
+        <h3 className="text-3xl font-bold mb-6">BOXER</h3>
 
         <div className="grid md:grid-cols-4 gap-4">
-          {marcas.Calzones.map((img, i) => (
+          {marcas.BOXER.map((img, i) => (
             <img
               key={i}
               src={img}
-              alt="Calzones"
+              alt="BOXER"
               className="rounded-2xl h-72 w-full object-cover hover:scale-105 transition duration-500 border border-zinc-800"
             />
           ))}
