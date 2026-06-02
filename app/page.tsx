@@ -8,9 +8,9 @@ export default function Home() {
   // 🔥 SLIDER PRODUCTOS DESTACADOS
   const featured = [
     {
-      name: "Pantalon adidas Premium",
-      price: 100000,
-      img: "ropa7.jpeg",
+      name: "VANS",
+      price: 150000,
+      img: "VANS1.jpeg",
     },
     {
       name: "Adidas Campus",
