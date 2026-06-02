@@ -9,7 +9,7 @@ export default function Home() {
   const featured = [
     {
       name: "True Happiness",
-      text: "Tu destino para streetwear premium. Sneakers, ropa urbana y accesorios seleccionados para destacar tu estilo.",
+      price: "",
       img: "logo1.jpg",
     },
     {
