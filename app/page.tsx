@@ -75,11 +75,7 @@ export default function Home() {
         <p className="text-sm tracking-[0.4em] text-white/60 mb-4">
           NUEVA COLECCIÓN 2026
         </p>
-        <img
-          src="/logo1.jpg"
-          alt="logo"
-          className="w-32 h-32 rounded-full object-cover border border-white/20 mx-auto mb-6"
-        />
+      
         <h2 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
           STREETWEAR <br />
           <span className="text-pink-400">PREMIUM</span>
