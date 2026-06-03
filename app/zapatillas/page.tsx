@@ -42,36 +42,33 @@ export default function Zapatillas() {
     setCarrito((prev) => prev.filter((p) => p.nombre !== nombre));
   };
   const guardarPedido = async () => {
-  try {
-    const numeroPedido = `TH-${Date.now()}`;
+    try {
+      const numeroPedido = `TH-${Date.now()}`;
 
-    const { error } = await supabase
-      .from("pedidos")
-      .insert([
-        {
-          numero_pedido: numeroPedido,
-          productos: carrito,
-          total,
-          estado: "Pendiente",
-        },
-      ]);
+      const { error } = await supabase
+        .from("pedidos")
+        .insert([
+          {
+            numero_pedido: numeroPedido,
+            productos: carrito,
+            total: carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0),
+            estado: "Pendiente",
+          },
+        ]);
 
-    if (error) {
-      console.error(error);
-      alert("Error al guardar pedido");
+      if (error) {
+        console.error(error);
+        alert(JSON.stringify(error));
+        return;
+      }
+    } catch (e) {
+      console.error(e);
+      alert('Error al guardar el pedido');
       return;
     }
+  };  
+  const total = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
 
-    alert(`Pedido generado: ${numeroPedido}`);
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-  const total = carrito.reduce(
-    (acc, p) => acc + p.precio * p.cantidad,
-    0
-  );
 
   const adidas: Producto[] = [
     { img: "ADIDAS.jpeg", nombre: "Adidas Campus", precio: 180000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
