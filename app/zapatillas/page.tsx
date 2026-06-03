@@ -1,5 +1,5 @@
 "use client";
-import { supabase } from "@/LIB/supabase";
+import { supabase } from "@/lib/supabase";
 import { useState, useMemo } from "react";
 
 type Producto = {
