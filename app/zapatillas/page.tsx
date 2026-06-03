@@ -1,5 +1,5 @@
 "use client";
-
+import { supabase } from "@/LIB/supabase";
 import { useState, useMemo } from "react";
 
 type Producto = {
@@ -41,6 +41,32 @@ export default function Zapatillas() {
   const eliminarDelCarrito = (nombre: string) => {
     setCarrito((prev) => prev.filter((p) => p.nombre !== nombre));
   };
+  const guardarPedido = async () => {
+  try {
+    const numeroPedido = `TH-${Date.now()}`;
+
+    const { error } = await supabase
+      .from("pedidos")
+      .insert([
+        {
+          numero_pedido: numeroPedido,
+          productos: carrito,
+          total,
+          estado: "Pendiente",
+        },
+      ]);
+
+    if (error) {
+      console.error(error);
+      alert("Error al guardar pedido");
+      return;
+    }
+
+    alert(`Pedido generado: ${numeroPedido}`);
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   const total = carrito.reduce(
     (acc, p) => acc + p.precio * p.cantidad,
@@ -50,17 +76,7 @@ export default function Zapatillas() {
   const adidas: Producto[] = [
     { img: "ADIDAS.jpeg", nombre: "Adidas Campus", precio: 180000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
     { img: "ADIDAS1.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },  
-    { img: "ADIDAS2.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS3.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS10.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS5.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS6.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS7.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS8.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS9.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS11.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS12.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS13.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    
   ];
 
   const nike: Producto[] = [
@@ -229,6 +245,12 @@ export default function Zapatillas() {
             <p className="mt-4 font-bold">
               Total: ${total.toLocaleString()}
             </p>
+            <button
+  onClick={guardarPedido}
+  className="mt-4 w-full bg-yellow-500 text-black py-3 rounded-xl font-bold"
+>
+  Generar pedido
+</button>
 <a
   href={`https://wa.me/5491173600891?text=Hola%20quiero%20comprar:%0A${carrito
     .map((p) => `- ${p.nombre} x${p.cantidad} $${p.precio}`)
