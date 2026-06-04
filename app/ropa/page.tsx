@@ -1,6 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
-import { useCart } from "./context/CartContext";
+import { useCart } from "../context/CartContext";
 
 type Producto = {
   img: string;
