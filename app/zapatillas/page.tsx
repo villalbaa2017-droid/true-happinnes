@@ -1,5 +1,4 @@
 "use client";
-import { supabase } from "@/lib/supabase";
 import { useState, useMemo } from "react";
 
 type Producto = {
@@ -42,34 +41,33 @@ export default function Zapatillas() {
     setCarrito((prev) => prev.filter((p) => p.nombre !== nombre));
   };
   const guardarPedido = async () => {
-    try {
-      const numeroPedido = `TH-${Date.now()}`;
+  try {
+    const numeroPedido = `TH-${Date.now()}`;
 
-      const { error } = await supabase
-        .from("pedidos")
-        .insert([
-          {
-            numero_pedido: numeroPedido,
-            productos: carrito,
-            total: carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0),
-            estado: "Pendiente",
-          },
-        ]);
-
-      if (error) {
-        console.error(error);
-        alert(JSON.stringify(error));
-        return;
+    const respuesta = await fetch(
+      "https://script.google.com/macros/s/AKfycbw1kFL15ed5pp-bPnFcZtDL79e3PH5bB6DLG9w1jmhSKT4GjV1ONdr5j6V4HDITabM/exec",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          numeroPedido,
+          productos: carrito,
+          total: carrito.reduce(
+            (acc, p) => acc + p.precio * p.cantidad,
+            0
+          ),
+        }),
       }
-    } catch (e) {
-      console.error(e);
-      alert('Error al guardar el pedido');
-      return;
-    }
-  };  
-  const total = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
+    );
 
+    const texto = await respuesta.text();
+    console.log(texto);
 
+    alert(`Pedido generado: ${numeroPedido}`);
+  } catch (error) {
+    console.error(error);
+    alert("Error al guardar pedido");
+  }
+};
   const adidas: Producto[] = [
     { img: "ADIDAS.jpeg", nombre: "Adidas Campus", precio: 180000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
     { img: "ADIDAS1.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },  
@@ -240,7 +238,7 @@ export default function Zapatillas() {
             ))}
 
             <p className="mt-4 font-bold">
-              Total: ${total.toLocaleString()}
+              Total: ${carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0).toLocaleString()}
             </p>
             <button
   onClick={guardarPedido}
@@ -251,7 +249,7 @@ export default function Zapatillas() {
 <a
   href={`https://wa.me/5491173600891?text=Hola%20quiero%20comprar:%0A${carrito
     .map((p) => `- ${p.nombre} x${p.cantidad} $${p.precio}`)
-    .join("%0A")}%0A%0ATotal:%20$${total.toLocaleString()}`}
+    .join("%0A")}%0A%0ATotal:%20$${carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0).toLocaleString()}`}
   target="_blank"
   className="mt-4 block w-full bg-green-500 text-black py-3 rounded-xl font-bold text-center"
 >
