@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { text } from "stream/consumers";
+import { useCart } from "./context/CartContext";
 
 export default function Home() {
+  // 🛒 carrito global
+  const { cart } = useCart();
+
   // 🔥 SLIDER PRODUCTOS DESTACADOS
   const featured = [
     {
@@ -48,6 +51,7 @@ export default function Home() {
       <nav className="sticky top-0 z-50 backdrop-blur-xl bg-black/60 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
+          {/* LOGO */}
           <div className="flex items-center gap-3">
             <img
               src="/logo.jpg"
@@ -60,17 +64,29 @@ export default function Home() {
             </h1>
           </div>
 
-          <a
-            href="https://www.instagram.com/true.happiness_1/"
-            target="_blank"
-            className="px-5 py-2 rounded-full border border-pink-500 text-sm hover:bg-pink-500/20 transition"
-          >
-            Instagram
-          </a>
+          {/* BOTÓN CARRITO + INSTAGRAM */}
+          <div className="flex items-center gap-4">
+
+            <Link
+              href="/carrito"
+              className="px-4 py-2 bg-white text-black rounded-xl font-bold"
+            >
+              🛒 {cart.length}
+            </Link>
+
+            <a
+              href="https://www.instagram.com/true.happiness_1/"
+              target="_blank"
+              className="px-5 py-2 rounded-full border border-pink-500 text-sm hover:bg-pink-500/20 transition"
+            >
+              Instagram
+            </a>
+
+          </div>
         </div>
       </nav>
 
-      {/* 🔥 PRODUCTOS DESTACADOS - SLIDER PRO */}
+      {/* 🔥 SLIDER PRODUCTOS DESTACADOS */}
       <section className="px-6 py-20 bg-zinc-950/70">
         <h2 className="text-4xl font-bold text-center mb-12">
           Productos destacados
@@ -93,13 +109,13 @@ export default function Home() {
               <p className="text-white/60 mb-4">
                 ${featured[index].price.toLocaleString()}
               </p>
-              <a
+
+              <Link
                 href="/zapatillas"
-                target="_blank"
-                className="bg-green-500 text-black px-6 py-2 rounded-xl font-bold w-full hover:scale-105 transition"
+                className="bg-green-500 text-black px-6 py-2 rounded-xl font-bold w-full hover:scale-105 transition inline-block"
               >
                 Ver más
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -138,7 +154,7 @@ export default function Home() {
         <p className="text-sm tracking-[0.4em] text-white/60 mb-4">
           NUEVA COLECCIÓN 2026
         </p>
-      
+
         <h2 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
           STREETWEAR <br />
           <span className="text-pink-400">PREMIUM</span>
@@ -194,7 +210,6 @@ export default function Home() {
               <div className="relative rounded-3xl overflow-hidden group cursor-pointer border border-white/10">
                 <img
                   src={c.img}
-                  alt={c.title}
                   className="w-full h-80 object-cover group-hover:scale-110 transition duration-500"
                 />
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
@@ -203,54 +218,6 @@ export default function Home() {
               </div>
             </Link>
           ))}
-        </div>
-      </section>
-
-      
-
-      {/* POR QUÉ ELEGIRNOS */}
-      <section className="py-20 px-6">
-        <h2 className="text-4xl font-bold text-center mb-12">
-          ¿Por qué elegirnos?
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          <div className="bg-black/40 p-8 rounded-2xl border border-white/10 text-center">
-            🚚 Envíos a todo el país
-          </div>
-
-          <div className="bg-black/40 p-8 rounded-2xl border border-white/10 text-center">
-            🔒 Compra segura
-          </div>
-
-          <div className="bg-black/40 p-8 rounded-2xl border border-white/10 text-center">
-            ⭐ Calidad premium
-          </div>
-        </div>
-      </section>
-
-      {/* CÓMO COMPRAR */}
-      <section className="py-20 px-6 bg-black/40">
-        <h2 className="text-4xl font-bold text-center mb-12">
-          ¿Cómo realizo mi pedido?
-        </h2>
-
-        <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <div className="p-6 rounded-2xl border border-white/10 bg-black/30">
-            📸 Elegí tu producto
-          </div>
-
-          <div className="p-6 rounded-2xl border border-white/10 bg-black/30">
-            💬 Contactanos
-          </div>
-
-          <div className="p-6 rounded-2xl border border-white/10 bg-black/30">
-            💳 Pagá tu pedido
-          </div>
-
-          <div className="p-6 rounded-2xl border border-white/10 bg-black/30">
-            🚚 Recibí tu compra
-          </div>
         </div>
       </section>
 

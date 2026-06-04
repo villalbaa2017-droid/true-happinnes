@@ -1,173 +1,169 @@
 "use client";
+import { useState, useMemo } from "react";
+import { useCart } from "./context/CartContext";
+
+type Producto = {
+  img: string;
+  nombre: string;
+  precio: number;
+  talle: string;
+  mp: string;
+};
 
 export default function accesorios() {
-  const marcas: Record<string, string[]> = {
-    BOXER: [
-      "BOXER.jpeg",
-      "BOXER2.jpeg",
-      "BOXER3.jpeg",
-    ],
-    Medias: [
-      "MEDIAS1.jpeg",
-      "MEDIAS2.jpeg",
-      "MEDIAS3.jpeg",
-      "MEDIAS4.jpeg",
-      "MEDIAS5.jpeg",
-      "MEDIAS6.jpeg",
-      "MEDIAS7.jpeg",
-    ],
-    Gorras:[
-      "Proximamente!.jpeg",
-      
-    ],
-    
-    OTROS:[
-        "Proximamente!.jpeg",
-      
-    ],
-  };
+  const { cart, addToCart, removeFromCart } = useCart();
+
+  const [busqueda, setBusqueda] = useState("");
+  const [filtro, setFiltro] = useState("TODOS");
+  const [productoActivo, setProductoActivo] = useState<Producto | null>(null);
+
+  // 🧠 PRODUCTOS
+  const adidas: Producto[] = [
+    { img: "ADIDAS.jpeg", nombre: "Adidas Campus", precio: 180000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "ADIDAS1.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+  ];
+
+  const nike: Producto[] = [
+    { img: "NIKE1.jpeg", nombre: "Nike Air Max", precio: 250000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "NIKE2.jpeg", nombre: "Nike React", precio: 220000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+  ];
+
+  const dc: Producto[] = [
+    { img: "DC.jpeg", nombre: "DC Shoes", precio: 200000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "DCC.jpeg", nombre: "DC Shoes", precio: 200000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+  ];
+
+  const vans: Producto[] = [
+    { img: "VANS1.jpeg", nombre: "VANS Shoes", precio: 180000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
+    { img: "VANS2.jpeg", nombre: "VANS Skater", precio: 160000, talle: "39-44", mp: "https://mpago.la/sebastianvillalba" },
+  ];
+
+  // 🔎 filtro
+  const catalogo = useMemo(() => {
+    const all = [
+      ...adidas.map(p => ({ ...p, marca: "ADIDAS" })),
+      ...nike.map(p => ({ ...p, marca: "NIKE" })),
+      ...dc.map(p => ({ ...p, marca: "DC" })),
+      ...vans.map(p => ({ ...p, marca: "VANS" })),
+    ];
+
+    return all.filter((p) =>
+      p.nombre.toLowerCase().includes(busqueda.toLowerCase()) &&
+      (filtro === "TODOS" || p.marca === filtro)
+    );
+  }, [busqueda, filtro]);
 
   return (
-    <main
-      className="min-h-screen text-white p-6 bg-cover bg-center bg-fixed"
+    <main className="min-h-screen text-white p-6 bg-cover bg-center bg-fixed"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.50)), url('/fondo.jpg')",
+          "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('/fondo.jpg')",
       }}
     >
-      <div className="flex flex-col items-center gap-4 mb-10">
-        <img
-          src="/logo.jpg"
-          alt="logo"
-          className="w-24 h-24 rounded-full"
+
+      {/* HEADER */}
+      <div className="flex items-center justify-between mb-8 max-w-6xl mx-auto w-full">
+
+        <div className="flex items-center gap-3">
+          <img src="/logo.jpg" className="w-14 h-14 rounded-full" />
+          <h1 className="text-2xl md:text-3xl font-bold">
+            TRUE HAPPINNES
+          </h1>
+        </div>
+
+        {/* 🛒 CARRITO GLOBAL */}
+        <button className="bg-white text-black px-4 py-2 rounded-xl font-bold">
+          🛒 {cart.length}
+        </button>
+      </div>
+
+      {/* BUSQUEDA */}
+      <div className="max-w-4xl mx-auto mb-10">
+        <input
+          value={busqueda}
+          onChange={(e) => setBusqueda(e.target.value)}
+          placeholder="Buscar zapatillas..."
+          className="w-full p-3 rounded-xl text-black"
         />
 
-        <h1 className="text-4xl font-bold">
-          TRUE HAPPINNES
-        </h1>
+        <div className="flex gap-2 mt-4 justify-center flex-wrap">
+          {["TODOS", "ADIDAS", "NIKE", "DC", "VANS"].map((f) => (
+            <button
+              key={f}
+              onClick={() => setFiltro(f)}
+              className={`px-4 py-2 rounded-xl ${
+                filtro === f ? "bg-white text-black" : "bg-zinc-800"
+              }`}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+      </div>
 
-        <a
-          href="https://www.instagram.com/true.happinnes_/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="border border-pink-500 px-4 py-2 rounded-xl"
+      {/* PRODUCTOS */}
+      <div className="grid md:grid-cols-4 gap-4">
+        {catalogo.map((p, i) => (
+          <div key={i} className="bg-black/50 rounded-2xl overflow-hidden">
+
+            <img src={p.img} className="h-72 w-full object-cover" />
+
+            <div className="p-4">
+              <h4 className="font-bold">{p.nombre}</h4>
+
+              <p className="text-green-400 text-xl font-bold">
+                ${p.precio.toLocaleString()}
+              </p>
+
+              <div className="flex gap-2 mt-3">
+
+                <button
+                  onClick={() => setProductoActivo(p)}
+                  className="flex-1 bg-zinc-800 py-2 rounded-lg"
+                >
+                  Vista rápida
+                </button>
+
+                <button
+                  onClick={() => addToCart(p)}
+                  className="flex-1 bg-white text-black py-2 rounded-lg font-bold"
+                >
+                  Agregar
+                </button>
+
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* QUICK VIEW */}
+      {productoActivo && (
+        <div
+          onClick={() => setProductoActivo(null)}
+          className="fixed inset-0 bg-black/70 flex items-center justify-center"
         >
-          Instagram
-        </a>
-      </div>
+          <div className="bg-black p-6 rounded-xl w-[400px]">
+            <img src={productoActivo.img} className="w-full h-60 object-cover rounded-xl" />
 
-      <h2 className="text-5xl font-bold text-center mb-4">
-        Accesorios
-      </h2>
+            <h2 className="text-xl font-bold mt-4">
+              {productoActivo.nombre}
+            </h2>
 
-      <p className="text-center text-zinc-300 max-w-2xl mx-auto mb-10">
-        Modelos disponibles por encargo. Consultanos stock, talles y precios por WhatsApp.
-      </p>
+            <p className="text-green-400 text-xl">
+              ${productoActivo.precio.toLocaleString()}
+            </p>
 
-      <div className="grid md:grid-cols-3 gap-4 mb-12">
-        <div className="bg-black/40 border border-zinc-700 p-4 rounded-xl text-center">
-          🚚 Envíos a todo el país
+            <button
+              onClick={() => addToCart(productoActivo)}
+              className="w-full mt-4 bg-white text-black py-2 rounded-xl font-bold"
+            >
+              Agregar al carrito
+            </button>
+          </div>
         </div>
+      )}
 
-        <div className="bg-black/40 border border-zinc-700 p-4 rounded-xl text-center">
-          💳 Transferencia con descuento
-        </div>
-
-        <div className="bg-black/40 border border-zinc-700 p-4 rounded-xl text-center">
-          📱 Atención personalizada
-        </div>
-      </div>
-
-      <a
-        href="/"
-        className="inline-block mb-10 bg-white text-black px-4 py-2 rounded-xl"
-      >
-        ← Inicio
-      </a>
-
-      <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">BOXER</h3>
-
-        <div className="grid md:grid-cols-4 gap-4">
-          {marcas.BOXER.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt="BOXER"
-              className="rounded-2xl h-72 w-full object-cover hover:scale-105 transition duration-500 border border-zinc-800"
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">Medias</h3>
-
-        <div className="grid md:grid-cols-4 gap-4">
-          {marcas.Medias.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt="Medias"
-              className="rounded-2xl h-72 w-full object-cover hover:scale-105 transition duration-500 border border-zinc-800"
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-16">
-        <h3 className="text-3xl font-bold mb-6">Gorras</h3>
-
-        <div className="grid md:grid-cols-4 gap-4">
-          {marcas.Gorras.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt="Gorras"
-              className="rounded-2xl h-72 w-full object-cover hover:scale-105 transition duration-500 border border-zinc-800"
-            />
-          ))}
-        </div>
-      </section>
-
-      <section>
-        <h3 className="text-3xl font-bold mb-6">OTROS</h3>
-
-        <div className="grid md:grid-cols-4 gap-4">
-          {marcas.OTROS.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt="OTROS"
-              className="rounded-2xl h-72 w-full object-cover hover:scale-105 transition duration-500 border border-zinc-800"
-            />
-          ))}
-        </div>
-      </section>
-
-      <div className="text-center py-12">
-        <h3 className="text-2xl font-bold mb-4">
-          ¿No encontrás el modelo que buscás?
-        </h3>
-
-        <a
-          href="https://wa.me/5491173600891"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-green-500 text-black px-6 py-3 rounded-xl font-bold"
-        >
-          Consultar por WhatsApp
-        </a>
-      </div>
-
-      <a
-        href="https://wa.me/5491173600891"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition z-50"
-      >
-        💬
-      </a>
     </main>
   );
 }

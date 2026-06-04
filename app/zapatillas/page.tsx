@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
+import { useCart } from "./context/CartContext";
 
 type Producto = {
   img: string;
@@ -9,69 +10,17 @@ type Producto = {
   mp: string;
 };
 
-type CarritoItem = Producto & { cantidad: number };
-
 export default function Zapatillas() {
-  const [carrito, setCarrito] = useState<CarritoItem[]>([]);
-  const [open, setOpen] = useState(false);
+  const { cart, addToCart, removeFromCart } = useCart();
 
   const [busqueda, setBusqueda] = useState("");
   const [filtro, setFiltro] = useState("TODOS");
   const [productoActivo, setProductoActivo] = useState<Producto | null>(null);
 
-  const agregarAlCarrito = (producto: Producto) => {
-    setCarrito((prev) => {
-      const existe = prev.find((p) => p.nombre === producto.nombre);
-
-      if (existe) {
-        return prev.map((p) =>
-          p.nombre === producto.nombre
-            ? { ...p, cantidad: p.cantidad + 1 }
-            : p
-        );
-      }
-
-      return [...prev, { ...producto, cantidad: 1 }];
-    });
-
-    setOpen(true);
-  };
-
-  const eliminarDelCarrito = (nombre: string) => {
-    setCarrito((prev) => prev.filter((p) => p.nombre !== nombre));
-  };
-  const guardarPedido = async () => {
-  try {
-    const numeroPedido = `TH-${Date.now()}`;
-
-    const respuesta = await fetch(
-      "https://script.google.com/macros/s/AKfycbw1kFL15ed5pp-bPnFcZtDL79e3PH5bB6DLG9w1jmhSKT4GjV1ONdr5j6V4HDITabM/exec",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          numeroPedido,
-          productos: carrito,
-          total: carrito.reduce(
-            (acc, p) => acc + p.precio * p.cantidad,
-            0
-          ),
-        }),
-      }
-    );
-
-    const texto = await respuesta.text();
-    console.log(texto);
-
-    alert(`Pedido generado: ${numeroPedido}`);
-  } catch (error) {
-    console.error(error);
-    alert("Error al guardar pedido");
-  }
-};
+  // 🧠 PRODUCTOS
   const adidas: Producto[] = [
     { img: "ADIDAS.jpeg", nombre: "Adidas Campus", precio: 180000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
-    { img: "ADIDAS1.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },  
-    
+    { img: "ADIDAS1.jpeg", nombre: "Adidas Forum", precio: 195000, talle: "39-44", mp: "https://mpago.la/TU_LINK" },
   ];
 
   const nike: Producto[] = [
@@ -89,6 +38,7 @@ export default function Zapatillas() {
     { img: "VANS2.jpeg", nombre: "VANS Skater", precio: 160000, talle: "39-44", mp: "https://mpago.la/sebastianvillalba" },
   ];
 
+  // 🔎 filtro
   const catalogo = useMemo(() => {
     const all = [
       ...adidas.map(p => ({ ...p, marca: "ADIDAS" })),
@@ -97,12 +47,10 @@ export default function Zapatillas() {
       ...vans.map(p => ({ ...p, marca: "VANS" })),
     ];
 
-    return all.filter((p) => {
-      return (
-        p.nombre.toLowerCase().includes(busqueda.toLowerCase()) &&
-        (filtro === "TODOS" || p.marca === filtro)
-      );
-    });
+    return all.filter((p) =>
+      p.nombre.toLowerCase().includes(busqueda.toLowerCase()) &&
+      (filtro === "TODOS" || p.marca === filtro)
+    );
   }, [busqueda, filtro]);
 
   return (
@@ -113,46 +61,20 @@ export default function Zapatillas() {
       }}
     >
 
-      {/* ================= HEADER PRO (NUEVO) ================= */}
+      {/* HEADER */}
       <div className="flex items-center justify-between mb-8 max-w-6xl mx-auto w-full">
 
-        {/* LOGO + NOMBRE */}
         <div className="flex items-center gap-3">
           <img src="/logo.jpg" className="w-14 h-14 rounded-full" />
-
           <h1 className="text-2xl md:text-3xl font-bold">
             TRUE HAPPINNES
           </h1>
         </div>
 
-        {/* BOTONES CENTRO */}
-        <div className="flex items-center gap-4">
-
-          <a
-            href="/"
-            className="text-sm text-zinc-300 hover:text-white transition"
-          >
-            ← Volver al inicio
-          </a>
-
-          <button
-            onClick={() => setOpen(true)}
-            className="bg-white text-black px-4 py-2 rounded-xl font-bold"
-          >
-            🛒 {carrito.length}
-          </button>
-
-        </div>
-
-        {/* INSTAGRAM */}
-        <a
-          href="https://www.instagram.com/true.happinnes_/"
-          target="_blank"
-          className="border border-pink-500 px-4 py-2 rounded-xl hover:bg-pink-500/20 transition"
-        >
-          Instagram
-        </a>
-
+        {/* 🛒 CARRITO GLOBAL */}
+        <button className="bg-white text-black px-4 py-2 rounded-xl font-bold">
+          🛒 {cart.length}
+        </button>
       </div>
 
       {/* BUSQUEDA */}
@@ -203,7 +125,7 @@ export default function Zapatillas() {
                 </button>
 
                 <button
-                  onClick={() => agregarAlCarrito(p)}
+                  onClick={() => addToCart(p)}
                   className="flex-1 bg-white text-black py-2 rounded-lg font-bold"
                 >
                   Agregar
@@ -214,66 +136,6 @@ export default function Zapatillas() {
           </div>
         ))}
       </div>
-
-      {/* CARRITO */}
-      {open && (
-        <div className="fixed inset-0 bg-black/60 z-50">
-          <div className="absolute right-0 top-0 w-[420px] h-full bg-black p-6">
-
-            <h2 className="text-xl font-bold mb-4">Carrito</h2>
-
-            {carrito.map((p, i) => (
-              <div key={i} className="flex justify-between border-b py-2">
-                <div>
-                  <p>{p.nombre}</p>
-                  <p className="text-green-400">
-                    ${p.precio.toLocaleString()} x {p.cantidad}
-                  </p>
-                </div>
-
-                <button onClick={() => eliminarDelCarrito(p.nombre)}>
-                  X
-                </button>
-              </div>
-            ))}
-
-            <p className="mt-4 font-bold">
-              Total: ${carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0).toLocaleString()}
-            </p>
-            <button
-  onClick={guardarPedido}
-  className="mt-4 w-full bg-yellow-500 text-black py-3 rounded-xl font-bold"
->
-  Generar pedido
-</button>
-<a
-  href={`https://wa.me/5491173600891?text=Hola%20quiero%20comprar:%0A${carrito
-    .map((p) => `- ${p.nombre} x${p.cantidad} $${p.precio}`)
-    .join("%0A")}%0A%0ATotal:%20$${carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0).toLocaleString()}`}
-  target="_blank"
-  className="mt-4 block w-full bg-green-500 text-black py-3 rounded-xl font-bold text-center"
->
-  Finalizar compra por WhatsApp
-</a>
-
-<a
-  href="https://link.mercadopago.com.ar/TU_LINK"
-  target="_blank"
-  className="mt-3 block w-full bg-sky-500 text-black py-3 rounded-xl font-bold text-center"
->
-  Pagar con MercadoPago
-</a>
-
-            <button
-              onClick={() => setOpen(false)}
-              className="mt-4 w-full bg-red-500 py-2 rounded-xl"
-            >
-              Cerrar
-            </button>
-
-          </div>
-        </div>
-      )}
 
       {/* QUICK VIEW */}
       {productoActivo && (
@@ -293,7 +155,7 @@ export default function Zapatillas() {
             </p>
 
             <button
-              onClick={() => agregarAlCarrito(productoActivo)}
+              onClick={() => addToCart(productoActivo)}
               className="w-full mt-4 bg-white text-black py-2 rounded-xl font-bold"
             >
               Agregar al carrito
